@@ -1,1 +1,154 @@
-hello
+<title>SASE GBM Bingo</title>
+<head>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+    body{
+        font-family: "Open Sans";
+    }
+    .grid-container{
+        display: grid;
+        grid-template-columns: auto auto auto auto auto;
+        gap: 1%;
+        margin: 1%;
+        margin-top: 10vh;
+    }
+    .grid-item{
+        background-color: gray;
+        height: 10vh;
+    }
+    .form{
+        display: none;
+        margin-top: 10%;
+    }
+
+</style>
+
+<body>
+    <div class="grid-container">
+        <div class="grid-item" id="box1">A</div>
+        <div class="grid-item" id="box2">A</div>
+        <div class="grid-item" id="box3">A</div>
+        <div class="grid-item" id="box4">A</div>
+        <div class="grid-item" id="box5">A</div>
+        <div class="grid-item" id="box6">A</div>
+        <div class="grid-item" id="box7">A</div>
+        <div class="grid-item" id="box8">A</div>
+        <div class="grid-item" id="box9">A</div>
+        <div class="grid-item" id="box10">A</div>
+        <div class="grid-item" id="box11">A</div>
+        <div class="grid-item" id="box12">A</div>
+        <div class="grid-item" id="box13">A</div>
+        <div class="grid-item" id="box14">A</div>
+        <div class="grid-item" id="box15">A</div>
+        <div class="grid-item" id="box16">A</div>
+        <div class="grid-item" id="box17">A</div>
+        <div class="grid-item" id="box18">A</div>
+        <div class="grid-item" id="box19">A</div>
+        <div class="grid-item" id="box20">A</div>
+        <div class="grid-item" id="box21">A</div>
+        <div class="grid-item" id="box22">A</div>
+        <div class="grid-item" id="box23">A</div>
+        <div class="grid-item" id="box24">A</div>
+        <div class="grid-item" id="box25">A</div>
+    </div>
+
+    <div class="form" id="form">
+        <input type="text" placeholder="Name for Bingo" id="name">
+        <button onclick="addtoList()">Submit</button>
+        <button onclick="goBack()">Back</button>
+        <p id="print"></p>
+    </div>
+
+</body>
+
+<script>
+    var box1 = document.getElementById("box1");
+    var box2 = document.getElementById("box2");
+    var box3 = document.getElementById("box3");
+    var box4 = document.getElementById("box4");
+    var box5 = document.getElementById("box5");
+    var box6 = document.getElementById("box6");
+    var box7 = document.getElementById("box7");
+    var box8 = document.getElementById("box8");
+    var box9 = document.getElementById("box9");
+    var box10 = document.getElementById("box10");
+    var box11 = document.getElementById("box11");
+    var box12 = document.getElementById("box12");
+    var box13 = document.getElementById("box13");
+    var box14 = document.getElementById("box14");
+    var box15 = document.getElementById("box15");
+    var box16 = document.getElementById("box16");
+    var box17 = document.getElementById("box17");
+    var box18 = document.getElementById("box18");
+    var box19 = document.getElementById("box19");
+    var box20 = document.getElementById("box20");
+    var box21 = document.getElementById("box21");
+    var box22 = document.getElementById("box22");
+    var box23 = document.getElementById("box23");
+    var box24 = document.getElementById("box24");
+    var box25 = document.getElementById("box25");
+    var form = document.getElementById("form");
+    var name = ""
+    var category = ""
+    var boxid = ""
+
+
+
+    function handleChange1(){
+        if(box1.style.backgroundColor != "red"){
+            box1.style.backgroundColor = "red";
+            form.style.display = "block"
+            category = box1.textContent
+            boxid = "box1"
+            removeListeners()
+        }
+    }
+
+    function handleChange2(){
+        if(box2.style.backgroundColor != "red"){
+            box2.style.backgroundColor = "red";
+            form.style.display = "block"
+            category = box2.textContent
+            boxid = "box2"
+            removeListeners()
+        }
+    }
+
+    function addtoList(){
+        if(document.getElementById("name").value.trim() != ""){
+            name += document.getElementById("name").value+ " = "+category + "\n"
+            document.getElementById("print").textContent = name
+            form.style.display = "none"
+            document.getElementById("name").value = ""
+            category = ""
+            boxid = ""
+            addListeners()
+        }
+        else{
+            alert("Please fill out the students name")
+        }
+    }
+
+    function goBack(){
+        document.getElementById(boxid).style.backgroundColor = "gray";
+        form.style.display = "none"
+        document.getElementById("name").value = ""
+        category = ""
+        boxid = ""
+        addListeners()
+    }
+
+    function addListeners(){
+        box1.addEventListener('click', handleChange1, {once:true});
+        box2.addEventListener('click', handleChange2, {once:true});
+    }
+
+    function removeListeners(){
+        box1.removeEventListener('click', handleChange1, {once:true});
+        box2.removeEventListener('click', handleChange2, {once:true});
+    }
+
+    addListeners()
+</script>
