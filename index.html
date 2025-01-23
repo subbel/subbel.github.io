@@ -6,6 +6,7 @@
 
     body{
         font-family: "Open Sans";
+        font-size: 3vw;
     }
     .grid-container{
         display: grid;
@@ -16,50 +17,83 @@
     }
     .grid-item{
         background-color: gray;
-        height: 10vh;
+        height: 18vw;
+        max-height: 120px;
+        width: 18vw;
+        text-align: center;
     }
+
+
+    @media screen and (min-width: 1000px) {
+            body{
+                font-size: 30px;
+            }
+        }
+
     .form{
         display: none;
         margin-top: 10%;
     }
 
+    .submit{
+        background-color: green;
+        height: 7vw;
+        font-size: 2vw;
+        width: 10vw;
+    }
+
+    .back{
+        background-color: red;
+        height: 7vw;
+        font-size: 2vw;
+        width: 10vw;
+    }
+    .inputname{
+        height: 5vw;
+        width: 40vw;
+
+    }
+
 </style>
 
 <body>
-    <div class="grid-container">
-        <div class="grid-item" id="box1">A</div>
-        <div class="grid-item" id="box2">A</div>
-        <div class="grid-item" id="box3">A</div>
-        <div class="grid-item" id="box4">A</div>
-        <div class="grid-item" id="box5">A</div>
-        <div class="grid-item" id="box6">A</div>
-        <div class="grid-item" id="box7">A</div>
-        <div class="grid-item" id="box8">A</div>
-        <div class="grid-item" id="box9">A</div>
-        <div class="grid-item" id="box10">A</div>
-        <div class="grid-item" id="box11">A</div>
-        <div class="grid-item" id="box12">A</div>
-        <div class="grid-item" id="box13">A</div>
-        <div class="grid-item" id="box14">A</div>
-        <div class="grid-item" id="box15">A</div>
-        <div class="grid-item" id="box16">A</div>
-        <div class="grid-item" id="box17">A</div>
-        <div class="grid-item" id="box18">A</div>
-        <div class="grid-item" id="box19">A</div>
-        <div class="grid-item" id="box20">A</div>
-        <div class="grid-item" id="box21">A</div>
-        <div class="grid-item" id="box22">A</div>
-        <div class="grid-item" id="box23">A</div>
-        <div class="grid-item" id="box24">A</div>
-        <div class="grid-item" id="box25">A</div>
+    <div class="grid-container" id="container">
+        <div class="grid-item" id="box1">Same Major as you</div>
+        <div class="grid-item" id="box2">Taking the same Class</div>
+        <div class="grid-item" id="box3">Computer Science Major</div>
+        <div class="grid-item" id="box4">Task: Learn a new word</div>
+        <div class="grid-item" id="box5">Arizona Native</div>
+        <div class="grid-item" id="box6">Task:Show your pet</div>
+        <div class="grid-item" id="box7">Plays same sport as you </div>
+        <div class="grid-item" id="box8">Task: Share Resume</div>
+        <div class="grid-item" id="box9">Read the same book as you</div>
+        <div class="grid-item" id="box10">Electrical Engineer</div>
+        <div class="grid-item" id="box11">Task: Get their instagram</div>
+        <div class="grid-item" id="box12">Task: Share LinkedIn</div>
+        <div class="grid-item" id="box13">E-Board member</div>
+        <div class="grid-item" id="box14">Task: Take a selfie</div>
+        <div class="grid-item" id="box15">Recognizes your meme reference</div>
+        <div class="grid-item" id="box16">Left-handed</div>
+        <div class="grid-item" id="box17">Plays your favourite sport</div>
+        <div class="grid-item" id="box18">Non-Engineering  Major</div>
+        <div class="grid-item" id="box19">Task: Find their fav hobby</div>
+        <div class="grid-item" id="box20">Sophomore</div>
+        <div class="grid-item" id="box21">Watches Anime</div>
+        <div class="grid-item" id="box22">Has a pet Cat</div>
+        <div class="grid-item" id="box23">Watched a show that you know</div>
+        <div class="grid-item" id="box24">Has a pet Dog</div>
+        <div class="grid-item" id="box25">Gone to a Concert</div>
     </div>
 
     <div class="form" id="form">
-        <input type="text" placeholder="Name for Bingo" id="name">
-        <button onclick="addtoList()">Submit</button>
-        <button onclick="goBack()">Back</button>
-        <p id="print"></p>
+        <input type="text" placeholder="Name for Bingo" id="name" style="font-size:3vw;" class="inputname">
+        <button onclick="addtoList()" class="submit">Submit</button>
+        <button onclick="goBack()" class="back">Back</button>
     </div>
+
+    <h1 style="display: none;"  id="finish"> Finished </h1>
+    <p id="print" style="display: none;"></p>
+
 
 </body>
 
