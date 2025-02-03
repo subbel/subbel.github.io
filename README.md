@@ -1,4 +1,4 @@
 # GBMGames
 
-- [GBM 1 Bingo](subbel.github.io/index.html)
-- [HTML instructions](subbel.github.io/WorkshopHTML.html)
+- [GBM 1 Bingo](https://subbel.github.io/bingo.html)
+- [HTML instructions](https://subbel.github.io/WorkshopHTML.html)
