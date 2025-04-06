@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Hotels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="Hotels.xsd">
+
+  <Hotel HotelID="H001" Rating="4.5">
+    <Name>Hotel California</Name>
+    <Address>42 Sunset Blvd, Los Angeles, CA</Address>
+    <Phone>+1-213-123-4567</Phone>
+    <Phone>+1-213-765-4321</Phone>
+    <Email>info@hotelcalifornia.com</Email>
+  </Hotel>
+
+  <Hotel HotelID="H002">
+    <Name>Desert Inn</Name>
+    <Address>100 Palm St, Phoenix, AZ</Address>
+    <Phone>+1-480-234-5678</Phone>
+    <Email>contact@desertinn.com</Email>
+  </Hotel>
+
+  <Hotel HotelID="H003" Rating="3.0">
+    <Name>Skyline Hotel</Name>
+    <Address>88 Main St, New York, NY</Address>
+    <Phone>+1-212-000-1234</Phone>
+    <Email>hello@skylinehotel.com</Email>
+  </Hotel>
+
+  <Hotel HotelID="H004">
+    <Name>Lakeside Resort</Name>
+    <Address>12 Lake Rd, Tahoe, NV</Address>
+    <Phone>+1-775-333-4567</Phone>
+    <Email>info@lakesideresort.com</Email>
+  </Hotel>
+
+  <Hotel HotelID="H005" Rating="4.0">
+    <Name>Mountain Lodge</Name>
+    <Address>200 Peak View, Denver, CO</Address>
+    <Phone>+1-720-456-7890</Phone>
+    <Phone>+1-720-456-7891</Phone>
+    <Email>stay@mountainlodge.com</Email>
+  </Hotel>
+
+  <Hotel HotelID="H006">
+    <Name>Coastal Inn</Name>
+    <Address>9 Ocean Dr, Miami, FL</Address>
+    <Phone>+1-305-555-1234</Phone>
+    <Email>bookings@coastalinn.com</Email>
+  </Hotel>
+
+  <Hotel HotelID="H007" Rating="5.0">
+    <Name>Grand Royale</Name>
+    <Address>1 Luxury Blvd, Las Vegas, NV</Address>
+    <Phone>+1-702-777-0000</Phone>
+    <Phone>+1-702-777-0001</Phone>
+    <Email>vip@grandroyale.com</Email>
+  </Hotel>
+
+  <Hotel HotelID="H008">
+    <Name>Forest Retreat</Name>
+    <Address>33 Pine Way, Portland, OR</Address>
+    <Phone>+1-503-123-9876</Phone>
+    <Email>escape@forestretreat.com</Email>
+  </Hotel>
+
+  <Hotel HotelID="H009" Rating="3.5">
+    <Name>Urban Stay</Name>
+    <Address>101 City Ave, Chicago, IL</Address>
+    <Phone>+1-312-456-7890</Phone>
+    <Email>reservations@urbanstay.com</Email>
+  </Hotel>
+
+  <Hotel HotelID="H010">
+    <Name>Seaside Villa</Name>
+    <Address>55 Beachfront Blvd, San Diego, CA</Address>
+    <Phone>+1-619-987-6543</Phone>
+    <Email>info@seasidevilla.com</Email>
+  </Hotel>
+
+</Hotels>

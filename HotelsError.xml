@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Hotel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="Hotels.xsd">
+
+  <Hotel HotelID="H001" Rating="4.5">
+    <Name>Hotel California</Name>
+    <Address>42 Sunset Blvd, Los Angeles, CA</Address>
+    <Phone>+1-213-123-4567</Phone>
+    <Phone>+1-213-765-4321</Phone>
+    <Email>info@hotelcalifornia.com</Email>
+  </Hotel>
+
+  <Hotel>
+    <Name>Desert Inn</Name>
+    <!-- Missing HotelID attribute (Error #2) -->
+    <Address>100 Palm St, Phoenix, AZ</Address>
+    <Phone>+1-480-234-5678</Phone>
+    <Email>contact@desertinn.com</Email>
+  </Hotel>
+
+  <Hotel HotelID="H003">
+    <Name>Skyline Hotel</Name>
+    <!-- Missing <Phone> element (Error #3) -->
+    <Address>88 Main St, New York, NY</Address>
+    <Email>hello@skylinehotel.com</Email>
+  </Hotel>
+
+  <Hotel HotelID="H004">
+    <Name>Lakeside Resort</Name>
+    <!-- Malformed Address tag (Error #4) -->
+    <Address>12 Lake Rd, Tahoe, NV
+    <Phone>+1-775-333-4567</Phone>
+    <Email>info@lakesideresort.com</Email>
+  </Hotel>
+
+  <Hotel HotelID="H005">
+    <!-- Duplicate Name element (Error #5) -->
+    <Name>Mountain Lodge</Name>
+    <Name>Mountain Lodge Extra</Name>
+    <Address>200 Peak View, Denver, CO</Address>
+    <Phone>+1-720-456-7890</Phone>
+    <Email>stay@mountainlodge.com</Email>
+  </Hotel>
+
+</Hotel>
