@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Hotel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://subbel.github.io/Hotels.xsd">
+<Hotels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://subbel.github.io/Hotels.xsd">
 	<Hotel>
 		<Name>Hotel California</Name>
 		<Address>
@@ -121,4 +121,4 @@
 			<Zip>92101</Zip>
 		</Address>
 	</Hotel>
-</Hotel>
+</Hotels>
