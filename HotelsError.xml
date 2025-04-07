@@ -14,7 +14,7 @@
 	<Hotel Rating="3.8">
 		<Name>Desert Inn</Name>
 		<Phone>480-234-5678</Phone>
-		<Address NearestAirport="Sky Harbor">
+		<Address NearstAirport="Sky Harbor">
 			<Number>100</Number>
 			<Street>Palm St</Street>
 			<City>Phoenix</City>
@@ -26,7 +26,7 @@
 	<Hotel>
 		<Name>Skyline Hotel</Name>
 		<Phone>212-000-1234</Phone>
-		<Address NearestAirport="JFK">
+		<Address NearstAirport="JFK">
 			<Number>88</Number>
 			<Street>Main St</Street>
 			<City>New York</City>
@@ -39,7 +39,7 @@
 		<Name>Lakeside Resort</Name>
 		<Name>Lakeside Hotel</Name>
 		<Phone>775-333-4567</Phone>
-		<Address NearestAirport="Reno-Tahoe">
+		<Address NearstAirport="Reno-Tahoe">
 			<Number>12</Number>
 			<Street>Lake Rd</Street>
 			<City>Tahoe</City>
@@ -52,7 +52,7 @@
 		<Name>Mountain Lodge</Name>
 		<Phone>720-456-7890</Phone>
 		<Phone>720-456-7891</Phone>
-		<Address NearestAirport="Denver Intl">
+		<Address NearstAirport="Denver Intl">
 			<Number>200</Number>
 			<Street>Peak View</Street>
 			<City>Denver</City>
@@ -64,7 +64,7 @@
 	<Hotel Rating="3.7">
 		<Name>Coastal Inn</Name>
 		<Phone>305-555-1234</Phone>
-		<Address NearestAirport="MIA">
+		<Address NearstAirport="MIA">
 			<Number>9</Number>
 			<Street>Ocean Dr</Street>
 			<City>Miami</City>
@@ -77,7 +77,7 @@
 		<Name>Grand Royale</Name>
 		<Phone>702-777-0000</Phone>
 		<Phone>702-777-0001</Phone>
-		<Address NearestAirport="LAS">
+		<Address NearstAirport="LAS">
 			<Number>1</Number>
 			<Street>Luxury Blvd</Street>
 			<City>Las Vegas</City>
@@ -89,7 +89,7 @@
 	<Hotel Rating="4.2">
 		<Name>Forest Retreat</Name>
 		<Phone>503-123-9876</Phone>
-		<Address NearestAirport="PDX">
+		<Address NearstAirport="PDX">
 			<Number>33</Number>
 			<Street>Pine Way</Street>
 			<City>Portland</City>
@@ -101,7 +101,7 @@
 	<Hotel Rating="3.5">
 		<Name>Urban Stay</Name>
 		<Phone>312-456-7890</Phone>
-		<Address NearestAirport="ORD">
+		<Address NearstAirport="ORD">
 			<Number>101</Number>
 			<Street>City Ave</Street>
 			<City>Chicago</City>
@@ -113,7 +113,7 @@
 	<Hotel Rating="4.3">
 		<Name>Seaside Villa</Name>
 		<Phone>619-987-6543</Phone>
-		<Address NearestAirport="SAN">
+		<Address NearstAirport="SAN">
 			<Number>55</Number>
 			<Street>Beachfront Blvd</Street>
 			<City>San Diego</City>
