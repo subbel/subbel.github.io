@@ -32,6 +32,7 @@
 			<City>New York</City>
 			<State>NY</State>
 			<Zip>10001</Zip>
+		</Address>
 	</Hotel>
 
 	<Hotel>
@@ -118,6 +119,5 @@
 			<City>San Diego</City>
 			<State>CA</State>
 			<Zip>92101</Zip>
-		</Address>
 	</Hotel>
 </Hotel>
