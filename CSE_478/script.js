@@ -166,9 +166,11 @@ function updateBleachingChart() {
   let BleachingLevelsByYear;
   if (selectedYear == "All Years") {
     BleachingLevelsByYear = allData;
+    d3.select('.bleach_species').text("Bleaching vs. Species Chart");
   }
   else {
     BleachingLevelsByYear = allData.filter(d => d.Date.getFullYear() === +selectedYear);
+    d3.select('.bleach_species').text(`Bleaching vs. Species Chart ${selectedYear}`)
   }
 
   // Define bleaching severity levels (0-3) and aggregate data for each level
