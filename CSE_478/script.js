@@ -166,7 +166,7 @@ function updateBleachingChart() {
   let BleachingLevelsByYear;
   if (selectedYear == "All Years") {
     BleachingLevelsByYear = allData;
-    d3.select('.bleach_species').text("Bleaching vs. Species Chart");
+    d3.select(".bleach_species").text("Bleaching vs. Species")
   }
   else {
     BleachingLevelsByYear = allData.filter(d => d.Date.getFullYear() === +selectedYear);
