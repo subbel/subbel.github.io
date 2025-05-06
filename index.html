@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Coral Reef Data Visualization Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+  <h1>Coral Reef Data Visualization Dashboard</h1>
+
+  <div class="dashboard">
+    <div class="filter-panel">
+      <h3>Filters</h3>
+      <div class="filter-group">
+        <label for="metric-select">Select Metric:</label>
+        <select id="metric-select">
+          <option value="SST (°C)">Sea Surface Temperature (°C)</option>
+          <option value="pH Level">pH Level</option>
+        </select>
+        <button id="btn-all-bleaching">Show Marine Species loss overall</button>
+      </div>
+    </div>
+
+    <div class="visualization-panel">
+      <div class="row">
+        <div class="chart-container">
+          <h3>Time Series Chart</h3>
+          <div id="time-series-chart"></div>
+        </div>
+        <div class="chart-container">
+          <h3>Bleaching vs. Species Chart</h3>
+          <div id="bleaching-species-chart"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="chart-container" style="grid-column: 1 / span 2;">
+          <h3>Location Distribution</h3>
+          <div id="location-bar-chart"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tooltip" id="tooltip"></div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
