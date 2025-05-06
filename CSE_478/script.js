@@ -1,6 +1,6 @@
 let allData = []; // Stores data from the CSV
-// let selectedMetric = "SST (°C)"; // Default metric
-let selectedMetric = "pH Level"; // Default metric
+let selectedMetric = "SST (°C)"; // Default metric
+// let selectedMetric = "pH Level"; // Default metric
 const tooltip = d3.select("#tooltip"); // tooltip element for displaying information
 let selectedYear = "All Years" // Track the year selected for filtering, default as al
 
