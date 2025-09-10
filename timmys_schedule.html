@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Timmy's Week Planner — Sept 10–19, 2025</title>
+  <style>
+    :root{
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --accent:#2563eb;
+      --exam:#ef4444;
+      --project:#f59e0b;
+      --meeting:#10b981;
+      --class:#7c3aed;
+      --small-radius:10px;
+      --max-width:1000px;
+      --pad:18px;
+      font-family:Inter,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:#0f172a;
+    }
+    html,body{height:100%;}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,var(--bg),#eef2ff 120%);
+      display:flex;
+      justify-content:center;
+      padding:28px;
+      box-sizing:border-box;
+    }
+    .wrap{
+      width:100%;
+      max-width:var(--max-width);
+      box-sizing:border-box;
+    }
+    header{
+      display:flex;
+      align-items:flex-start;
+      gap:16px;
+      margin-bottom:20px;
+    }
+    .title{
+      background:var(--card);
+      border-radius:var(--small-radius);
+      padding:16px;
+      box-shadow:0 6px 20px rgba(16,24,40,0.06);
+      width:100%;
+    }
+    .title h1{margin:0;font-size:20px;}
+    .title p{margin:6px 0 0;color:var(--muted);font-size:14px;}
+    main{
+      display:grid;
+      grid-template-columns:1fr 360px;
+      gap:18px;
+    }
+    @media (max-width:920px){
+      main{grid-template-columns:1fr;}
+    }
+
+    /* left column */
+    .card{
+      background:var(--card);
+      border-radius:var(--small-radius);
+      padding:var(--pad);
+      box-shadow:0 6px 20px rgba(16,24,40,0.04);
+      box-sizing:border-box;
+    }
+    .section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+    .section-title h2{margin:0;font-size:16px;}
+    .muted{color:var(--muted);font-size:13px;}
+    ul{margin:8px 0 0;padding-left:18px;}
+    li{margin:6px 0;line-height:1.35;}
+
+    /* checklist */
+    .tasks input[type="checkbox"]{margin-right:8px;transform:translateY(2px);}
+    .small{font-size:13px;color:var(--muted);}
+
+    /* schedule list */
+    .date-grid{display:flex;flex-direction:column;gap:10px;}
+    .event{
+      border-radius:8px;padding:12px;background:#fbfdff;border:1px solid rgba(15,23,42,0.03);
+      display:flex;align-items:center;gap:12px;justify-content:space-between;
+    }
+    .event .left{display:flex;gap:12px;align-items:center;}
+    .badge{
+      min-width:10px;height:10px;border-radius:50%;
+      box-shadow:0 1px 0 rgba(0,0,0,0.05) inset;
+    }
+    .meta{font-size:13px;color:var(--muted);}
+    .ev-title{font-weight:600;}
+    .tag{font-size:12px;padding:6px 8px;border-radius:999px;background:rgba(15,23,42,0.04);}
+
+    /* colored badges by type */
+    .exam .badge{background:var(--exam);}
+    .project .badge{background:var(--project);}
+    .meeting .badge{background:var(--meeting);}
+    .class .badge{background:var(--class);}
+
+    /* right column */
+    .summary .big{font-size:15px;margin:8px 0;color:#0b1220;}
+    .time-save{display:flex;flex-direction:column;gap:8px;margin-top:8px;}
+    .option{display:flex;align-items:center;gap:8px;}
+    .muted-note{font-size:13px;color:var(--muted);}
+
+    footer{margin-top:14px;text-align:center;color:var(--muted);font-size:13px;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title card">
+        <h1>Timmy's Week Planner</h1>
+        <p class="muted">Current day: <strong>10 September, 2025</strong> — schedule & tasks for Sept 11–19</p>
+      </div>
+    </header>
+
+    <main>
+      <!-- LEFT: Main content -->
+      <section>
+        <div class="card">
+          <div class="section-title">
+            <h2>At-a-glance</h2>
+          </div>
+          <p class="big">Timmy has a rough week: two exams (HAA 123, FMO 230), a project due, multiple meetings and classes, and personal tasks. Use the checklist and schedule below to help him plan.</p>
+        </div>
+
+        <div class="card" style="margin-top:14px;">
+          <div class="section-title">
+            <h2>Additional Info</h2>
+          </div>
+          <ul>
+            <li><strong>Project (HAA 123)</strong>: 10 hours if you attend Recitation; 20 hours if you don't.</li>
+            <li><strong>HAA 123 exam</strong>: 25 hours of study recommended for an A.</li>
+            <li><strong>FMO 230 exam</strong>: 30 hours of study recommended for an A.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin-top:14px;">
+          <div class="section-title">
+            <h2>Extra Tasks (checklist)</h2>
+          </div>
+          <div class="tasks">
+            <label><input type="checkbox" /> Apply to 50 jobs</label><br>
+            <label><input type="checkbox" /> Talk to parents and siblings</label><br>
+            <label><input type="checkbox" /> Cook food (earns treats later)</label><br>
+            <label><input type="checkbox" /> Order food instead (saves ~2 hours today)</label><br>
+            <label><input type="checkbox" /> Grocery shopping (1.5 hours) — can skip by spending extra money</label>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px;">
+          <div class="section-title">
+            <h2>Schedule: Sept 11 — Sept 19, 2025</h2>
+          </div>
+
+          <div class="date-grid">
+            <div>
+              <div class="muted" style="margin-bottom:6px"><strong>11th September</strong></div>
+              <div class="event meeting">
+                <div class="left">
+                  <div class="badge"></div>
+                  <div>
+                    <div class="ev-title">Fulton Peer Mentor Meeting</div>
+                    <div class="meta">12:00 - 1:00 pm — With free food and drinks</div>
+                  </div>
+                </div>
+                <div class="tag">Meeting</div>
+              </div>
+              <div style="height:8px"></div>
+              <div class="event class">
+                <div class="left">
+                  <div class="badge"></div>
+                  <div>
+                    <div class="ev-title">Class — HAA 123</div>
+                    <div class="meta">5:00 - 6:00 pm</div>
+                  </div>
+                </div>
+                <div class="tag">Class</div>
+              </div>
+            </div>
+
+            <div>
+              <div class="muted" style="margin-bottom:6px"><strong>12th September</strong></div>
+              <div class="event meeting">
+                <div class="left">
+                  <div class="badge"></div>
+                  <div>
+                    <div class="ev-title">Invite: Dinner with friends</div>
+                    <div class="meta">8:00 - 11:00 pm</div>
+                  </div>
+                </div>
+                <div class="tag">Social</div>
+              </div>
+            </div>
+
+            <div>
+              <div class="muted" style="margin-bottom:6px"><strong>13th September</strong></div>
+              <div class="event meeting">
+                <div class="left">
+                  <div class="badge"></div>
+                  <div>
+                    <div class="ev-title">SASE Dance Practice</div>
+                    <div class="meta">12:00 - 1:00 pm</div>
+                  </div>
+                </div>
+                <div class="tag">Practice</div>
+              </div>
+            </div>
+
+            <div>
+              <div class="muted" style="margin-bottom:6px"><strong>14th September</strong></div>
+              <div class="event meeting">
+                <div class="left">
+                  <div class="badge"></div>
+                  <div>
+                    <div class="ev-title">Meeting with a professor</div>
+                    <div class="meta">12:00 - 12:30 pm</div>
+                  </div>
+                </div>
+                <div class="tag">Meeting</div>
+              </div>
+            </div>
+
+            <div>
+              <div class="muted" style="margin-bottom:6px"><strong>15th September</strong></div>
+              <div class="event project">
+                <div class="left">
+                  <div class="badge"></div>
+                  <div>
+                    <div class="ev-title">Recitation — HAA 123</div>
+                    <div class="meta">10:00 - 10:50 am — Attendance optional (may include hints for Exam)</div>
+                  </div>
+                </div>
+                <div class="tag">Recitation</div>
+              </div>
+
+              <div style="height:8px"></div>
+
+              <div class="event meeting">
+                <div class="left">
+                  <div class="badge"></div>
+                  <div>
+                    <div class="ev-title">Fulton Peer Mentor Meeting</div>
+                    <div class="meta">12:00 - 1:00 pm — With free food and drinks</div>
+                  </div>
+                </div>
+                <div class="tag">Meeting</div>
+              </div>
+
+              <div style="height:8px"></div>
+
+              <div class="event meeting">
+                <div class="left">
+                  <div class="badge"></div>
+                  <div>
+                    <div class="ev-title">Exam Review Session — FMO 230</div>
+                    <div class="meta">1:00 - 2:15 pm — Graded Attendance (10%)</div>
+                  </div>
+                </div>
+                <div class="tag">Review</div>
+              </div>
+
+              <div style="height:8px"></div>
+
+              <div class="event class">
+                <div class="left">
+                  <div class="badge"></div>
+                  <div>
+                    <div class="ev-title">Class — LOL 360</div>
+                    <div class="meta">3:00 - 4:15 pm — Attendance optional, no recording</div>
+                  </div>
+                </div>
+                <div class="tag">Class</div>
+              </div>
+            </div>
+
+            <div>
+              <div class="muted" style="margin-bottom:6px"><strong>16th September</strong></div>
+              <div class="event meeting">
+                <div class="left">
+                  <div class="badge"></div>
+                  <div>
+                    <div class="ev-title">Exam Review Session — HAA 123</div>
+                    <div class="meta">5:00 - 6:00 pm</div>
+                  </div>
+                </div>
+                <div class="tag">Review</div>
+              </div>
+            </div>
+
+            <div>
+              <div class="muted" style="margin-bottom:6px"><strong>17th September</strong></div>
+              <div class="event project">
+                <div class="left">
+                  <div class="badge"></div>
+                  <div>
+                    <div class="ev-title">Recitation — HAA 123</div>
+                    <div class="meta">10:00 - 10:50 am — May include hints about exam & project</div>
+                  </div>
+                </div>
+                <div class="tag">Recitation</div>
+              </div>
+
+              <div style="height:8px"></div>
+
+              <div class="event exam">
+                <div class="left">
+                  <div class="badge"></div>
+                  <div>
+                    <div class="ev-title">EXAM — FMO 230</div>
+                    <div class="meta">1:00 - 2:15 pm</div>
+                  </div>
+                </div>
+                <div class="tag">Exam</div>
+              </div>
+
+              <div style="height:8px"></div>
+
+              <div class="event class">
+                <div class="left">
+                  <div class="badge"></div>
+                  <div>
+                    <div class="ev-title">Class — LOL 360</div>
+                    <div class="meta">3:00 - 4:15 pm — Attendance optional, no recording</div>
+                  </div>
+                </div>
+                <div class="tag">Class</div>
+              </div>
+            </div>
+
+            <div>
+              <div class="muted" style="margin-bottom:6px"><strong>18th September</strong></div>
+              <div class="event exam">
+                <div class="left">
+                  <div class="badge"></div>
+                  <div>
+                    <div class="ev-title">EXAM — HAA 123</div>
+                    <div class="meta">5:00 - 6:00 pm</div>
+                  </div>
+                </div>
+                <div class="tag">Exam</div>
+              </div>
+            </div>
+
+            <div>
+              <div class="muted" style="margin-bottom:6px"><strong>19th September</strong></div>
+              <div class="event project">
+                <div class="left">
+                  <div class="badge"></div>
+                  <div>
+                    <div class="ev-title">Project Due — HAA 123</div>
+                    <div class="meta">Due at 11:59 pm</div>
+                  </div>
+                </div>
+                <div class="tag">Deadline</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT: Quick summary and time decisions -->
+      <aside>
+        <div class="card summary">
+          <div class="section-title">
+            <h2>Quick Summary</h2>
+          </div>
+          <div style="margin-top:10px;">
+            <div class="muted" style="font-weight:600;margin-bottom:6px;">Time-saving options</div>
+            <div class="time-save">
+              <div class="option"><input type="checkbox" /> Order food (saves ~2 hours)</div>
+              <div class="option"><input type="checkbox" /> Skip grocery trip (pay extra) — saves 1.5 hours</div>
+              <div class="option"><input type="checkbox" /> Attend Recitations (reduces project time from 20h → 10h)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px;">
+          <div class="section-title">
+            <h2>Estimate of study hours</h2>
+            <span class="muted">Rough totals</span>
+          </div>
+          <ul>
+            <li>FMO 230 — 30 hours recommended</li>
+            <li>HAA 123 — 20 hours recommended</li>
+            <li>Project — 10 hours (if attend Recitation) or 20 hours (if not)</li>
+          </ul>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div>Original Content - Used ChatGPT for the code</div>
+    </footer>
+  </div>
+</body>
+</html>
