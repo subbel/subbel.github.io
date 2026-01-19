@@ -1,7 +1,4 @@
-# GBMGames
+# Welcome to my Repo
 
-- [GBM 1 Bingo](https://subbel.github.io/bingo.html)
-- [HTML instructions](https://subbel.github.io/WorkshopHTML.html)
-- [Banquet](https://subbel.github.io/Banquet.html)
-- [D3.js](https://subbel.github.io/CSE_478)
-- [GBM 2](https://subbel.github.io/timmys_schedule.html)
+This repo contains a list of most of my standalone static websites. some are for classes, some are for fun. 
+
