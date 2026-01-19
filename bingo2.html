@@ -1,0 +1,126 @@
+<title>SASE GBM Bingo</title>
+<head>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+    /*
+    :root {
+    --primary: #141b4d;
+    --secondary: #89abe3;
+    --card-bg: #f8f9fc;
+    --card-border: #d6def2;
+    --text-dark: #141b4d;
+    --text-light: #ffffff;
+    --success: #4caf50;
+    --danger: #e74c3c;
+}
+    */
+
+    body{
+        font-family: "Open Sans";
+        font-size: 3vw;
+        background-color: #141b4d;
+        color: #141b4d;
+    }
+    .grid-container{
+        display: grid;
+        grid-template-columns: auto auto auto auto auto;
+        gap: 1%;
+        margin: 1%;
+        margin-top: 10vh;
+    }
+    .grid-item{
+        background-color: #f8f9fc;
+        border: 1px 1px 1px 1px #d6def2;
+        height: 22vw;
+        max-height: 220px;
+        width: 18vw;
+        text-align: center;
+    }
+
+    @media screen and (min-width: 1000px) {
+            body{
+                font-size: 30px;
+            }
+        }
+
+    .form{
+        display: none;
+        position: absolute;
+        top: 30vh;
+        left: 50%;
+        text-align: center;
+        transform: translate(-50%, -50%);
+    }
+
+    .submit{
+        background-color: green;
+        height: 7vw;
+        font-size: 2vw;
+        width: 10vw;
+    }
+
+    .back{
+        background-color: red;
+        height: 7vw;
+        font-size: 2vw;
+        width: 10vw;
+    }
+    .inputname{
+        height: 5vw;
+        width: 40vw;
+
+    }
+
+    #print {
+        white-space: pre-line;
+    }
+
+</style>
+
+<body>
+    <div class="grid-container" id="container">
+        <div class="grid-item" id="box1">Has taken a coding class before</div>
+        <div class="grid-item" id="box2">Has attended a career fair before</div>
+        <div class="grid-item" id="box3">Has attended a SASE event before</div>
+        <div class="grid-item" id="box4">Joined SASE this semester</div>
+        <div class="grid-item" id="box5">Has been to a company visit</div>
+        <div class="grid-item" id="box6">Is in another STEM club</div>
+        <div class="grid-item" id="box7">Can speak more than one language</div>
+        <div class="grid-item" id="box8">Loves boba</div>
+        <div class="grid-item" id="box9">Uses Spotify Wrapped as a personality trait</div>
+        <div class="grid-item" id="box10">Is a morning person</div>
+        <div class="grid-item" id="box11">Has pulled an all-nighter for an exam</div>
+        <div class="grid-item" id="box12">Loves spicy food</div>
+        <div class="grid-item" id="box13" style="background-color: #89abe3;">FREE!!!</div>
+        <div class="grid-item" id="box14">Has traveled outside the U.S.</div>
+        <div class="grid-item" id="box15">Listens to K-pop</div>
+        <div class="grid-item" id="box16">Watches anime or K-dramas</div>
+        <div class="grid-item" id="box17">Enjoys cooking or baking</div>
+        <div class="grid-item" id="box18">Plays a musical instrument</div>
+        <div class="grid-item" id="box19">Has taken a class just “for the GPA”</div>
+        <div class="grid-item" id="box20">Drinks coffee or energy drinks regularly</div>
+        <div class="grid-item" id="box21">Is taking 15+ credits this semester</div>
+        <div class="grid-item" id="box22">Speaks a heritage language at home</div>
+        <div class="grid-item" id="box23">Taught someone a phrase in another language</div>
+        <div class="grid-item" id="box24">Learned English as a second language</div>
+        <div class="grid-item" id="box25">Has a comfort TV show</div>
+    </div>
+
+    <div class="form" id="form">
+        <label id="questiontxt" style="background-color: #d6def2;">Question Text Here</label><br>
+        <input type="text" placeholder="Name for Bingo" id="name" style="font-size:3vw;" class="inputname">
+        <button onclick="addtoList()" class="submit">Submit</button>
+        <button onclick="goBack()" class="back">Back</button>
+    </div>
+
+    <h1 style="display: none; color:#f8f9fc;"  id="finish"> Finished </h1>
+    <div id="print" style="display: none;"></div>
+
+
+</body>
+
+<script src="bingo2.js">
+
+</script>

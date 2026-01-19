@@ -1,0 +1,225 @@
+function handleChange1(){
+    box1.style.backgroundColor = "#89abe3";
+    form.style.display = "block"
+    category = box1.textContent
+    qtxt.textContent = category
+    container.style.filter = "blur(10px)"
+    boxid = "box1"
+    removeListeners()
+    }
+function handleChange2(){
+    box2.style.backgroundColor = "#89abe3";
+    form.style.display = "block"
+    category = box2.textContent
+    qtxt.textContent = category
+    container.style.filter = "blur(10px)"
+    boxid = "box2"
+    removeListeners()
+    }
+function handleChange3(){
+    box3.style.backgroundColor = "#89abe3";
+    form.style.display = "block"
+    category = box3.textContent
+    qtxt.textContent = category
+    container.style.filter = "blur(10px)"
+    boxid = "box3"
+    removeListeners()
+    }
+function handleChange4(){
+    box4.style.backgroundColor = "#89abe3";
+    form.style.display = "block"
+    category = box4.textContent
+    qtxt.textContent = category
+    container.style.filter = "blur(10px)"
+    boxid = "box4"
+    removeListeners()
+    }
+function handleChange5(){
+    box5.style.backgroundColor = "#89abe3";
+    form.style.display = "block"
+    category = box5.textContent
+    qtxt.textContent = category
+    container.style.filter = "blur(10px)"
+    boxid = "box5"
+    removeListeners()
+    }
+function handleChange6(){
+    box6.style.backgroundColor = "#89abe3";
+    form.style.display = "block"
+    category = box6.textContent
+    qtxt.textContent = category
+    container.style.filter = "blur(10px)"
+    boxid = "box6"
+    removeListeners()
+    }
+function handleChange7(){
+    box7.style.backgroundColor = "#89abe3";
+    form.style.display = "block"
+    category = box7.textContent
+    qtxt.textContent = category
+    container.style.filter = "blur(10px)"
+    boxid = "box7"
+    removeListeners()
+    }
+function handleChange8(){
+    box8.style.backgroundColor = "#89abe3";
+    form.style.display = "block"
+    category = box8.textContent
+    qtxt.textContent = category
+    container.style.filter = "blur(10px)"
+    boxid = "box8"
+    removeListeners()
+    }
+function handleChange9(){
+    box9.style.backgroundColor = "#89abe3";
+    form.style.display = "block"
+    category = box9.textContent
+    qtxt.textContent = category
+    container.style.filter = "blur(10px)"
+    boxid = "box9"
+    removeListeners()
+    }
+function handleChange10(){
+    box10.style.backgroundColor = "#89abe3";
+    form.style.display = "block"
+    category = box10.textContent
+    qtxt.textContent = category
+    container.style.filter = "blur(10px)"
+    boxid = "box10"
+    removeListeners()
+    }
+function handleChange11(){
+    box11.style.backgroundColor = "#89abe3";
+    form.style.display = "block"
+    category = box11.textContent
+    qtxt.textContent = category
+    container.style.filter = "blur(10px)"
+    boxid = "box11"
+    removeListeners()
+    }
+function handleChange12(){
+    box12.style.backgroundColor = "#89abe3";
+    form.style.display = "block"
+    category = box12.textContent
+    qtxt.textContent = category
+    container.style.filter = "blur(10px)"
+    boxid = "box12"
+    removeListeners()
+    }
+function handleChange13(){
+    box13.style.backgroundColor = "#89abe3";
+    form.style.display = "block"
+    category = box13.textContent
+    qtxt.textContent = category
+    container.style.filter = "blur(10px)"
+    boxid = "box13"
+    removeListeners()
+    }
+function handleChange14(){
+    box14.style.backgroundColor = "#89abe3";
+    form.style.display = "block"
+    category = box14.textContent
+    qtxt.textContent = category
+    container.style.filter = "blur(10px)"
+    boxid = "box14"
+    removeListeners()
+    }
+function handleChange15(){
+    box15.style.backgroundColor = "#89abe3";
+    form.style.display = "block"
+    category = box15.textContent
+    qtxt.textContent = category
+    container.style.filter = "blur(10px)"
+    boxid = "box15"
+    removeListeners()
+    }
+function handleChange16(){
+    box16.style.backgroundColor = "#89abe3";
+    form.style.display = "block"
+    category = box16.textContent
+    qtxt.textContent = category
+    container.style.filter = "blur(10px)"
+    boxid = "box16"
+    removeListeners()
+    }
+function handleChange17(){
+    box17.style.backgroundColor = "#89abe3";
+    form.style.display = "block"
+    category = box17.textContent
+    qtxt.textContent = category
+    container.style.filter = "blur(10px)"
+    boxid = "box17"
+    removeListeners()
+    }
+function handleChange18(){
+    box18.style.backgroundColor = "#89abe3";
+    form.style.display = "block"
+    category = box18.textContent
+    qtxt.textContent = category
+    container.style.filter = "blur(10px)"
+    boxid = "box18"
+    removeListeners()
+    }
+function handleChange19(){
+    box19.style.backgroundColor = "#89abe3";
+    form.style.display = "block"
+    category = box19.textContent
+    qtxt.textContent = category
+    container.style.filter = "blur(10px)"
+    boxid = "box19"
+    removeListeners()
+    }
+function handleChange20(){
+    box20.style.backgroundColor = "#89abe3";
+    form.style.display = "block"
+    category = box20.textContent
+    qtxt.textContent = category
+    container.style.filter = "blur(10px)"
+    boxid = "box20"
+    removeListeners()
+    }
+function handleChange21(){
+    box21.style.backgroundColor = "#89abe3";
+    form.style.display = "block"
+    category = box21.textContent
+    qtxt.textContent = category
+    container.style.filter = "blur(10px)"
+    boxid = "box21"
+    removeListeners()
+    }
+function handleChange22(){
+    box22.style.backgroundColor = "#89abe3";
+    form.style.display = "block"
+    category = box22.textContent
+    qtxt.textContent = category
+    container.style.filter = "blur(10px)"
+    boxid = "box22"
+    removeListeners()
+    }
+function handleChange23(){
+    box23.style.backgroundColor = "#89abe3";
+    form.style.display = "block"
+    category = box23.textContent
+    qtxt.textContent = category
+    container.style.filter = "blur(10px)"
+    boxid = "box23"
+    removeListeners()
+    }
+function handleChange24(){
+    box24.style.backgroundColor = "#89abe3";
+    form.style.display = "block"
+    category = box24.textContent
+    qtxt.textContent = category
+    container.style.filter = "blur(10px)"
+    boxid = "box24"
+    removeListeners()
+    }
+function handleChange25(){
+    box25.style.backgroundColor = "#89abe3";
+    form.style.display = "block"
+    category = box25.textContent
+    qtxt.textContent = category
+    container.style.filter = "blur(10px)"
+    boxid = "box25"
+    removeListeners()
+    }

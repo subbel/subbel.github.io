@@ -1,0 +1,25 @@
+<div class="grid-item" id="box1">Has taken a coding class before</div>
+<div class="grid-item" id="box2">Has attended a career fair before</div>
+<div class="grid-item" id="box3">Has attended a SASE event before</div>
+<div class="grid-item" id="box4">Joined SASE this semester</div>
+<div class="grid-item" id="box5">Has been to a company visit</div>
+<div class="grid-item" id="box6">Is in another STEM club</div>
+<div class="grid-item" id="box7">Can speak more than one language</div>
+<div class="grid-item" id="box8">Loves boba</div>
+<div class="grid-item" id="box9">Uses Spotify Wrapped as a personality trait</div>
+<div class="grid-item" id="box10">Is a morning person</div>
+<div class="grid-item" id="box11">Has pulled an all-nighter for an exam</div>
+<div class="grid-item" id="box12">Loves spicy food</div>
+<div class="grid-item" id="box13">FREE!!!</div>
+<div class="grid-item" id="box14">Has traveled outside the U.S.</div>
+<div class="grid-item" id="box15">Listens to K-pop</div>
+<div class="grid-item" id="box16">Watches anime or K-dramas</div>
+<div class="grid-item" id="box17">Enjoys cooking or baking</div>
+<div class="grid-item" id="box18">Plays a musical instrument</div>
+<div class="grid-item" id="box19">Has taken a class just “for the GPA”</div>
+<div class="grid-item" id="box20">Drinks coffee or energy drinks regularly</div>
+<div class="grid-item" id="box21">Is taking 15+ credits this semester</div>
+<div class="grid-item" id="box22">Speaks a heritage language at home</div>
+<div class="grid-item" id="box23">Has taught someone a phrase in another language</div>
+<div class="grid-item" id="box24">Learned English as a second language</div>
+<div class="grid-item" id="box25">Has a comfort TV show</div>
