@@ -81,7 +81,7 @@ function removeListeners(){
     box25.removeEventListener('click',handleChange25,{once:true});
 }
 
-
+var sol = ["box1","box2","box3","box4","box5","box6","box7","box8","box9","box10","box11","box12","box14","box15","box16","box17","box18","box19","box20","box21","box22", "box23","box24","box25"]
 var form = document.getElementById("form");
 var name = ""
 var category = ""
@@ -353,22 +353,10 @@ function goBack(){
 
 function solutionCheck(){
     var boxname = ""
-    for(let i = 0; i < solutions.length; i++){
-        var lap = true
-        for(let j = 0; j < solutions[i].length; j++){
-            boxname = "box"+solutions[i][j]
-            if(listofboxes.includes(boxname)){
-                lap = lap && true
-            }
-            else{
-                lap = lap && false
-            }
-        }
-        if(lap == true){
-            document.getElementById("container").style.display = "none"
-            document.getElementById("finish").style.display = "block"
-            document.getElementById("print").style.display = "block"
-        }
+    if (listofboxes == sol){
+        document.getElementById("container").style.display = "none"
+        document.getElementById("finish").style.display = "block"
+        document.getElementById("print").style.display = "block"
     }
 }
 
