@@ -2,16 +2,178 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Subbel's Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subbel's Websites</title>
+    <link rel="stylesheet" href="index.css">
+    <!-- Warning -- This code is not original and was made in part using an AI Agent and is not entirely my work -->
 </head>
-<body>
-    <h1>Welcome to Subbel's Websites</h1>
-    <marquee style="background-color: black; color: yellow;font-size: 3em;" scrollamount = 10>Still Under Construction</marquee>
 
-    <h3>List of websites:</h3>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav>
+    <h1>Pratyusha K. Subbel</h1>
     <ul>
-        <!-- Insert Here -->
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#leadership">Leadership</a></li>
+        <li><a href="#list">List of Websites</a></li>
+    </ul>
+</nav>
+
+<!-- ===== HERO / ABOUT ===== -->
+<section id="about">
+    <div class="hero">
+        <div class="profile-pic" style="overflow: hidden">
+            <img src="Image/DSC04189.jpg" width="100%" style="object-fit: cover"/>
+        </div>
+        <div>
+            <h2>About Me</h2>
+            <p>
+                Hello!!! I am a student currently doing my master's degree at Arizona State University in Robotics and Autonomous Systems with a concentration in Artificial Intelligence. I have a background in making web applications and distributed systems through my Computer Science degree which I also recieved in ASU. Below here you will find a list of stuff I've done so far. Enjoy!!
+            </p>
+<!-- I never realized I could add emojis to html but thanks to AI now Ik -->
+            <div class="contact">
+                📧 <a href="mailto:pratyushakumar1304@gmail.com" target="_blank">pratyushakumar1304@gmail.com</a><br>
+                📞 925-963-4323<br>
+                💻 <a href="https://github.com/subbel" target="_blank">github.com/subbel</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== EDUCATION ===== -->
+<section id="education">
+    <h2>Education</h2>
+
+    <div class="card">
+        <strong>Arizona State University — Tempe, AZ</strong>
+        <p>B.S. Computer Science — GPA: 3.75</p>
+    </div>
+
+    <div class="card">
+        <strong>Arizona State University — Tempe, AZ</strong>
+        <p>M.S. Robotics and Autonomous Systems (AI)</p>
+        <p>Expected Graduation: December 2026</p>
+    </div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section id="skills">
+    <h2>Technical Skills</h2>
+<!-- Haha if you're snooping around in the back, then I can assure you that most of my knowledge in all of these languages and tools comes from my fun time as an undergrad at aSU -->
+    <div class="skills-grid">
+        <div class="card">
+            <strong>Languages</strong>
+            <p>Python, C++, Java, MATLAB, MySQL, HTML, CSS, JavaScript, sqlite3, XML</p>
+        </div>
+
+        <div class="card">
+            <strong>Frameworks & Libraries</strong>
+            <p>React.js, Django, Flask, JavaFX, JUnit, Scapy, Pandas, .NET, PyTorch, TensorFlow</p>
+        </div>
+
+        <div class="card">
+            <strong>Tools & Platforms</strong>
+            <p>Git, Azure, AWS (EC2, S3, SQS, Lambda), Power BI, Jira, Azure DevOps, Alteryx, Taiga</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== EXPERIENCE ===== -->
+<section id="experience">
+    <h2>Professional Experience</h2>
+
+    <div class="card">
+        <strong>Tech Mahindra — Trainee</strong>
+        <p>New Delhi, India | Apr 2023 - Jun 2023</p>
+        <ul>
+            <li>Worked with external databases to collect form data and perform visual analysis</li>
+            <li>Built client form prototypes and strengthened front-end skills using React</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects">
+    <h2>Key Projects</h2>
+
+    <div class="card">
+        <strong>LLM-Based Dataset Join Discovery Pipeline</strong>
+        <ul>
+            <li>Built column-level embedding pipeline for structured datasets with a 3-engineer team</li>
+            <li>Stored embeddings in ANN index for fast semantic column retrieval</li>
+            <li>Added LLM re-ranking layer to improve match accuracy</li>
+            <li>Benchmarked embedding models, ANN formats, and LLMs to optimize performance</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <strong>ARED — Edge AI Agent Platform</strong>
+        <ul>
+            <li>Reduced compute usage by 30% via custom preprocessing workflow</li>
+            <li>Designed multi-model gating architecture before LLM invocation</li>
+            <li>Deployed fully containerized AI stack on K3s edge infrastructure</li>
+            <li>Enabled function calling, translation, and speech-to-text locally</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <strong>SASE Website Platform</strong>
+        <ul>
+            <li>Managed 4-developer team as webmaster</li>
+            <li>Built Django-based student tracking and event system</li>
+            <li>Improved accessibility with non-technical workflow pages</li>
+            <li>Supported 160+ students and 3500+ monthly users</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <strong>Country Club Management System</strong>
+        <ul>
+            <li>Built .NET + XML based management system with 3 developers</li>
+            <li>Implemented SHA256 password encryption</li>
+            <li>Debugged system-wide AWS deployment issues</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <strong>Bridge2Africa E-Learning Lab Modernization</strong>
+        <ul>
+            <li>Led UI/UX modernization effort for client website</li>
+            <li>Built Shopify shopping experience</li>
+            <li>Deployed on Digital Ocean infrastructure</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ===== LEADERSHIP ===== -->
+<section id="leadership">
+    <h2>Leadership & Activities</h2>
+
+    <div class="card">
+        <strong>Society of Asian Scientists and Engineers — ASU</strong>
+        <p>Director of Internal Affairs, Vice President</p>
+        <ul>
+            <li>Lead team of 9 students to run professional and social events</li>
+            <li>Review resumes and conduct mock interviews</li>
+            <li>Coordinate with industry representatives for campus events</li>
+        </ul>
+    </div>
+</section>
+
+<section id="personal-links">
+    <h2>More Links</h2>
+
+    <details class="hidden-list">
+        <summary>Show Personal Websites</summary>
+
+        <ul>
+            <!-- this is a fun self-updating comment that goes through my repo to update any new webpages I might forget to add to the list -->
+            <!-- Insert Here -->
 <li><a href = 'Banquet.html'>Banquet.html</a></li>
 <li><a href = 'bingo.html'>bingo.html</a></li>
 <li><a href = 'bingo2.html'>bingo2.html</a></li>
@@ -20,7 +182,20 @@
 <li><a href = 'timmys_schedule.html'>timmys_schedule.html</a></li>
 <li><a href = 'WorkshopHTML.html'>WorkshopHTML.html</a></li>
 <li><a href = './CSE_478/index.html'>index.html in CSE_478</a></li>
-        <!-- End Here -->
-    </ul>
+            <!-- End Here -->
+        </ul>
+    </details>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <p>© 2026 Pratyusha Kumar Subbel</p>
+    <p>
+        <a href="https://github.com/subbel" target="_blank">GitHub</a> |
+        <a href="https://www.linkedin.com/in/kumar-subbel/" target="_blank">LinkedIn</a> |
+        <a href="Resume_Pratyusha.pdf" download="Pratyusha Kumar Resume">Resume</a>
+    </p>
+</footer>
+
 </body>
 </html>

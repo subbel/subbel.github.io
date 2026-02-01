@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    background: #f7f9fc;
+    color: #222;
+}
+
+/* ===== NAVBAR ===== */
+nav {
+    position: sticky;
+    top: 0;
+    background: #111827;
+    color: white;
+    padding: 14px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+nav h1 {
+    font-size: 18px;
+    letter-spacing: 0.5px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 22px;
+}
+
+nav a {
+    color: #e5e7eb;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+/* ===== LAYOUT ===== */
+section {
+    padding: 60px 40px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 26px;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 8px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+ul {
+    margin-left: 18px;
+    margin-top: 8px;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+/* ===== HERO ===== */
+.hero {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 160px;
+    height: 160px;
+    border-radius: 12px;
+    background: #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.contact {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #4b5563;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #111827;
+    color: #d1d5db;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 60px;
+}
+
+footer a {
+    color: #9ca3af;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    color: white;
+}
+
+/* ===== SMALL SCREENS ===== */
+@media (max-width: 700px) {
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* ===== Hidden Toggle List ===== */
+.hidden-list {
+    background: white;
+    border-radius: 10px;
+    padding: 16px 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    cursor: pointer;
+}
+
+.hidden-list summary {
+    font-weight: 600;
+    font-size: 16px;
+    list-style: none;
+    cursor: pointer;
+}
+
+.hidden-list summary::-webkit-details-marker {
+    display: none;
+}
+
+.hidden-list summary::after {
+    content: " +";
+    float: right;
+    font-weight: bold;
+}
+
+.hidden-list[open] summary::after {
+    content: " −";
+}
+
+.hidden-list ul {
+    margin-top: 12px;
+    margin-left: 18px;
+}
+
+.hidden-list li {
+    margin-bottom: 6px;
+}
+
+.hidden-list a {
+    text-decoration: none;
+    color: #2563eb;
+}
+
+.hidden-list a:hover {
+    text-decoration: underline;
+}
