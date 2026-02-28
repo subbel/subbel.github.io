@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<style>
+    :root{
+        --primary : #141b4d;
+        --secondary : #89abe3;
+        --background : #7ed445;
+
+    }
+    body{
+        background-color: var(--primary);
+    }
+    .first{
+        background-color: var(--secondary);
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 10vw;
+        width: 50vw;
+        text-align: center;
+        color: var(--primary);
+        margin-top: 15vw;
+    }
+    .second{
+        background-color: var(--secondary);
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 10vw;
+        width: 50vw;
+        text-align: center;
+        color: var(--primary);
+        margin-top: 20vw;
+        display: none;
+    }
+</style>
+<body>
+
+    <p class="first" id="inits"><strong id="init"></strong></p>
+    <p class="second" id="results"><strong id="result"></strong></p>
+</body>
+<script>
+    var type = 0;
+    init = document.getElementById("init");
+    result = document.getElementById("result");
+    inits = document.getElementById("inits");
+    results = document.getElementById("results");
+    initlist = ["Doing Work", "Doing Secretary Work", "Doing Treasurer Work", "Doing VP Work"];
+    resultlist = ["Good Job", "Good Job Secretary!!", "Good Job Treasurer!!", "Good Job VP!!"];
+    init.textContent = initlist[type];
+    result.textContent = resultlist[type];
+    function change(){
+        init.textContent = initlist[type];
+        result.textContent = resultlist[type];
+        if (inits.style.display == 'none'){
+            inits.style.display = 'block'
+            results.style.display = "none";
+        }
+        else{
+            inits.style.display = 'none'
+            results.style.display = "block";
+        }
+    }
+    document.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        change()
+    }
+    });
+
+</script>
+</html>
