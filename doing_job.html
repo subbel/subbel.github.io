@@ -43,18 +43,16 @@
     <p class="second" id="results"><strong id="result"></strong></p>
 </body>
 <script>
-    var type = 0;
+    var type = "";
     init = document.getElementById("init");
     result = document.getElementById("result");
     inits = document.getElementById("inits");
     results = document.getElementById("results");
-    initlist = ["Doing Work", "Doing Secretary Work", "Doing Treasurer Work", "Doing VP Work"];
-    resultlist = ["Good Job", "Good Job Secretary!!", "Good Job Treasurer!!", "Good Job VP!!"];
-    init.textContent = initlist[type];
-    result.textContent = resultlist[type];
+    init.textContent = "Doing " + type + " Work";
+    result.textContent = "Good Job " + type + "!!";
     function change(){
-        init.textContent = initlist[type];
-        result.textContent = resultlist[type];
+        init.textContent = "Doing " + type + " Work";
+        result.textContent = "Good Job " + type + "!!";
         if (inits.style.display == 'none'){
             inits.style.display = 'block'
             results.style.display = "none";
