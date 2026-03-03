@@ -1,0 +1,737 @@
+AAIRobots 2 - Planning
+=====================================
+
+Welcome to the AAIRobots Programming Project 2 for CSE 571 - Spring 2023.
+
+This section will test your understanding of Planning as covered in the class.
+
+
+==================
+Plagiarism Warning
+==================
+
+Powerful copy-detection systems will be used as part of grading, so please **DO NOT** submit/use any piece of code that is not **your own** work. These systems can easily catch instances where users change variable names, etc. from copied code.
+
+If you use any helper code, do not forget to cite it using comments inside the code.
+
+If you are stuck at any point, you can approach the professor or TA for help.
+
+As mentioned in class, please remember the academic integrity policy of this course.
+
+.. figure:: ./images/plagiarism.png
+    :scale: 50 %
+    :alt: Academic Integrity Policy
+
+=================
+Tasks
+=================
+
+#. [25 points] Complete the domain PDDL by completing the pick and move actions.
+
+#. [20 points] Complete the problem.pddl by writing the correct problem independent goal.
+
+#. [35 points] Complete the refinement.py by writing the correct downward refinement code for move action.
+
+=================
+Extra Credit
+=================
+
+#. [5 points] Use universal and existential quantifiers to write the goal formula.
+
+#. [15 points] Improve the quality of the high-level plans and refinements by  utilizing a different high-level planner (FF/different mode of FD) as well as changing the low-level search algorithm. You will be eligible for extra credit if the refinement is correct and the # of actions performed by the robot (in the low-level plan) is less than the solution that we have on file using the default configuration of the high-level planner and low-level search that is provided to you.
+
+Please refer to `instructions section <#instructions>`_ to understand what these tasks mean and how to setup the environment. It also includes a number of tips that will significantly simplify your task. Follow the instructions strictly to ensure that your assignment can be graded by the auto-grader. **Custom grading requests will not be entertained**.
+
+===================================
+Late Submission and Grading Policy
+===================================
+#. Please review the late submission policy provided in the syllabus. It will be followed strictly so ensure that you submit the project on time. 
+#. In order to get full points for Task 1, all the action descriptions should be correct. No partial points will be awarded if not all actions are right.
+#. In order to get full points for Task 2, your goal should be independent of the number of objects in the environment.
+#. In order to get full points for Task 3, your low level action plan should be correct. A set of test cases is provided to test this. Remember your output need not match the output in test cases provided exactly.
+#. Your final submitted code should run without any input or configuration from the graders. If any changes are required to get your submitted code to run, points will be deducted in a manner proportional to the number of changes needed. If you follow the instructions, your code will run without any inputs from the graders.
+#. The project will be graded on Ubuntu 18.04 machines setup with ROS Melodic, and Python 2.7. Use the setup from Programming Project 1 to ensure your code runs as intended with this configuration.
+
+Instructions
+=================
+
+===============================
+Setting up the **hw2** Folder
+===============================
+
+
+
+We assume that you have completed the setup for previous two assignments and you are using the same virtual machine. We also assume that you have completed the instructions on Canvas for this assignment. So, your virtual machine has a folder named :code:`hw2` in the folder inside the directory :code:`~/catkin_ws/src/` and all previously provided files. 
+
+Now execute the following steps: 
+
+
+
+#. Change permissions of all scripts in the hw1 folder to make them executable. 
+    .. code-block:: bash
+
+       chmod u+x ~/catkin_ws/src/hw2/scripts/*.py && chmod u+x ~/catkin_ws/src/hw2/*.sh
+
+#. Execte the following command to setup the required files. 
+	.. code-block:: bash
+
+		cd ~/catkin_ws/src/hw2 && ./env_setup.sh
+
+#. Useful tip you can use throughtout the assignment: If you ever run into issues and need to kill the running gazebo or roscore processes, run the following command. You can also use this command when the gazebo opens up but the turtlebot doesn't move.
+	.. code-block:: bash 
+
+		cd ~/catkin_ws/src/hw2/ && ./hw2_kill.sh
+
+
+
+=============================
+Environment Setting
+=============================
+
+**Environment 1 - bookWorld**
+
+Refer to the image below to see how a sample maze environment for bookWorld looks like. 
+The turtleBot has a basket on top of it. There are 4 books. Each book has a subject type and a size. There are 4 destination bins lying around in the environment. Each bin can accept books of a particular subject type and a particular size. 
+
+.. figure:: ./images/books_n_bins.png
+        :scale: 40 %
+        :alt: A sample maze
+
+**Environment 2 - cafeWorld** (Same as the one used in Programming Project 1)
+
+The image below shows an example of the cafe environment that the turtlebot3 robot operates in. There are two foods and 4 tables.
+
+.. figure:: ./images/food_n_tables.png
+        :scale: 40 %
+        :alt: A sample maze
+
+Some of the terms that we use throughout the project for both the environments are:
+
+#. **Objects and Goals:** In bookWorld, the objects are books, and the goals are bins. In cafeWorld, the objects are foods, and the goals are tables.
+
+#. **Types of Objects:** In bookWorld, there are books of two subject types. In cafeWorld, there are foods of two food types.
+
+#. **Sizes of Objects and Goals:** In bookWorld, there are books of two sizes - Large and Small, and bins of two sizes - Large and Small. In cafeWorld, there are foods of two sizes - Large and Small, and table of just one size.
+
+#. **Number of Object Types:** The number of distinct object types can be either 1 or 2 in both environments. 
+
+#. **Number of Objects:** This is the total number of objects of each type and each size in an environment. For each object type, an object of each size is created. E.g. for subject1 type in bookWorld, two books (one Large, one Small) are generated. So total number of objects in an environment is number of object types * number of objects per object type * number of sizes of object. The number of sizes of object is fixed 2 for both the environments.
+
+#. **Number of Goals:** The total number of goals generated is number of object types * number of sizes of object. E.g. For subject1 type in bookWorld, two bins (one Large, one Small) are generated as goals, and for a food type in cafeWorld, two tables are generated as goals.
+
+#. **Load Locations:** Load locations are the locations of turtlebot from which it can pick up an object.
+
+	.. note::
+		Grid Size is not used explicitly in this project. It is dependent on the number of books in bookWorld and unused with cafeWorld.
+
+..
+	.. warning::
+		We gave multiple load locations because it is possible that one of the object's load location is obstructed by another object. Same can also happen for the goal location. In such a case the TurtleBot can go to the another load location and perform the pick or place operation so that it can clear the path.
+
+		**It is possible that both the load locations of a object or bin are obstructed.** In such a case no solution exists, and you have to regenerate a new problem. Reducing the # of objects avoids this problem.
+
+==================================
+Completing domain files
+==================================
+Two domain files --:code:`domain_bookWorld.pddl` and :code:`domain_cafeWorld.pddl` -- are expected to be solved for maximum score in this assignment.
+Both the domain files are provided to you (located at :code:`~/catkin_ws/src/hw2/`).
+
+Contents of domain_bookWorld.pddl file: 
+
+.. code-block:: bash
+
+	(define (domain bookWorld)
+
+		(:requirements
+			:equality
+			:typing
+			:strips
+		)
+
+		(:types
+			robot
+			book
+			bin
+			location
+			subject
+			size
+		)
+
+
+		(:predicates
+			(Book_At ?a - book ?b - location)
+			(Bin_At ?a - bin ?b - location)
+			(Book_Subject ?a - book ?b - subject)
+			(Book_Size ?a - book ?b - size)
+			(Bin_Subject ?a - bin ?b - subject)
+			(Bin_Size ?a - bin ?b - size)
+			(Robot_At ?a - robot ?b - location)
+			(Empty_Basket ?a - robot)
+			(In_Basket ?b - book)
+		)
+
+		; Pick up a book from the location.
+		(:action pick
+			:parameters (?book - book ?bot - robot ?locbk - location)
+			:precondition (and
+				; ADD ALL PRECONDITIONS HERE
+			)
+			:effect (and
+				; ADD ALL EFFECTS HERE
+			)
+		)
+
+		; Place the book on the robot into the bin.
+		; The robot must be at the drop-off location, must be holding the book, and
+		; the book subject and size must match that of the bin.
+		(:action place
+			:parameters (?book - book ?bot - robot ?bin - bin ?locbn - location ?sizebn - size ?subbn - subject)
+			:precondition (and
+				(Robot_At ?bot ?locbn)
+				(not (Empty_Basket ?bot))
+
+				(Book_Size ?book ?sizebn)
+				(In_Basket ?book)
+				(Book_Subject ?book ?subbn)
+
+				(Bin_Size ?bin ?sizebn)
+				(Bin_At ?bin ?locbn)
+				(Bin_Subject ?bin ?subbn)
+			)
+			:effect (and
+				(Robot_At ?bot ?locbn)
+				(Empty_Basket ?bot)
+				(not (In_Basket ?book))
+
+				(Book_Size ?book ?sizebn)
+				(Book_At ?book ?locbn)
+				(Book_Subject ?book ?subbn)
+
+				(Bin_Size ?bin ?sizebn)
+				(Bin_At ?bin ?locbn)
+				(Bin_Subject ?bin ?subbn)
+			)
+		)
+
+		; Move the robot from one location to another.
+		(:action move
+			:parameters (?bot - robot ?oldloc - location ?newloc - location)
+			:precondition (and
+				; ADD ALL PRECONDITIONS HERE
+			)
+			:effect (and
+				; ADD ALL EFFECTS HERE
+			)
+		)
+	)
+
+Contents of domain_cafeWorld.pddl file:
+
+.. code-block:: bash
+
+	(define (domain cafeWorld)
+
+		(:requirements
+			:equality
+			:typing
+			:strips
+		)
+
+		(:types
+			robot
+			food
+			table
+			location
+			food_type
+			size
+		)
+
+		(:predicates
+			(Food_At ?a - food ?b - location)
+			(Table_At ?a - table ?b - location)
+			(Food_of_Type ?a - food ?b - food_type)
+			(Robot_At ?a - robot ?b - location)
+			(Empty_Basket ?a - robot)
+			(In_Basket ?b - food)
+			(Ordered ?table - table ?food_type - food_type)
+			(Portion_Size ?food - food ?size - size)
+			(Ordered_Portion ?table - table ?size - size)
+		)
+
+		; Pick up a food from the location.
+		(:action pick
+			:parameters (?food - food ?bot - robot ?locbk - location)
+			:precondition (and
+				; ADD ALL PRECONDITIONS HERE
+			)
+			:effect (and
+				; ADD ALL EFFECTS HERE
+			)
+		)
+
+		; Place the food on the robot on the table.
+		; The robot must be at the drop-off location, must be holding the food, and
+		; the food type and size must match that of the table ordering the food.
+		(:action place
+			:parameters (?food - food ?bot - robot ?table - table ?locbn - location ?sizebn - size ?type - food_type)
+			:precondition (and
+				(Robot_At ?bot ?locbn)
+				(Portion_Size ?food ?sizebn)
+				(In_Basket ?food)
+				(Food_of_Type ?food ?type)
+
+				(Ordered_Portion ?table ?sizebn)
+				(Table_At ?table ?locbn)
+				(Ordered ?table ?type)
+			)
+			:effect (and
+				(Robot_At ?bot ?locbn)
+				(Empty_Basket ?bot)
+				(not (In_Basket ?food))
+
+				(Portion_Size ?food ?sizebn)
+				(Food_At ?food ?locbn)
+
+			)
+		)
+
+		; Move the robot from one location to another.
+		(:action move
+			:parameters (?bot - robot ?oldloc - location ?newloc - location)
+			:precondition (and
+				; ADD ALL PRECONDITIONS HERE
+			)
+			:effect (and
+				; ADD ALL EFFECTS HERE
+			)
+		)
+	)
+
+
+***********
+Predicates
+***********
+
+The following are the predicates for bookWorld:
+
+    .. list-table::
+        :header-rows: 1
+
+        * - **Predicate**
+          - Is true if
+        * - **(Book_At ?a - book ?b - location)**
+          - book ?a is at location ?b
+        * - **(Bin_At ?a - bin ?b - location)**
+          - bin ?a is at location ?b
+        * - **(Book_Subject ?a - book ?b - subject)**: 
+          - subject of the book ?a is ?b
+        * - **(Book_Size ?a - book ?b - size)**: 
+          - size of the book ?a is ?b
+        * - **(Bin_Subject ?a - bin ?b - subject)**: 
+          - bin ?a stores objects of subject ?b
+        * - **(Bin_Size ?a - bin ?b - size)**: 
+          - bin ?a stores objects of size ?b
+        * - **(Robot_At ?a - robot ?b - location)**: 
+          - Robot ?a is at location ?b
+        * - **(Empty_Basket ?a - robot)**: 
+          - the basket on top of robot ?a is empty
+        * - **(In_Basket ?b - book)**: 
+          - the book ?b is in the basket
+
+The following are the predicates for cafeWorld:
+
+    .. list-table::
+        :header-rows: 1
+
+        * - **Predicate**
+          - Is true if
+        * - **(Food_At ?a - food ?b - location)**
+          - Food ?a is at location ?b
+        * - **(Table_At ?a - table ?b - location)**
+          - Table ?a is at location ?b
+        * - **(Food_of_Type ?a - food ?b - food_type)**: 
+          - Type of food ?a is ?b
+        * - **(Portion_Size ?food - food ?size - size)**: 
+          - Portion size of the food ?food is ?size
+        * - **(Ordered ?table - table ?food_type - food_type)**: 
+          - Table ?table ordered food of type ?food_type
+        * - **(Ordered_Portion ?table - table ?size - size)**: 
+          - Table ?table ordered food portion of size ?size
+        * - **(Robot_At ?a - robot ?b - location)**: 
+          - Robot ?a is at location ?b
+        * - **(Empty_Basket ?a - robot)**: 
+          - the basket on top of robot ?a is empty
+        * - **(In_Basket ?b - food)**: 
+          - the food ?b is in the basket
+
+
+***********
+Actions
+***********
+The following actions do the same tasks for both environments but handle different objects.
+
+#. **Pick**: The turtlebot can use this action to pick an object and place it into its basket. The capacity of the basket is only 1 object.
+#. **Place**: The turtlebot can use this action to place an object from its basket to a particular location in the environment.
+#. **Move**: The turtlebot can use this action to move around in the environment.
+
+Your task is to complete the pick and move actions in the PDDL domains of both the environments using the predicates above.
+We have already filled in the list of parameters needed for each action. Think intuitively using the given parameters and determine what the preconditions will be and what the effects are using the action descriptions above.
+
+==================================
+Completing problem.pddl
+==================================
+
+#. Generate a new problem.pddl file for an environment by executing the following command. The problem.pddl will be generated at :code:`~/catkin_ws/src/hw2`. You can use -h to understand what each argument for refinement.py file means.
+
+    .. code-block:: bash
+
+        rosrun hw2 refinement.py --objtypes <number of object types> --objcount <number of objects per type> --seed <seed> --env <environment> --generate-only
+
+
+#. For this high-level problem.pddl, a low-level environment is created for you to view in Gazebo. To view the environment, use the following command.
+
+    .. code-block:: bash
+
+        roslaunch hw2 maze.launch
+        
+#. Use :code:`~/catkin_ws/src/hw2/hw2_kill.sh` to cleanup the environment (like exiting Gazebo etc).
+
+#. The generated problem.pddl file is incomplete yet as it does not have a goal condition. Open :code:`goal_formula.py` located at :code:`~/catkin_ws/src/hw2/scripts/` and complete the :code:`get_goal_string()` method. Write code that produces a goal condition to place all the objects in the corresponding goal location. Take bookWorld for example, if the book B is of subject A, and its size is L, your goal condition must be written so that B is placed in a bin T whose subject is A and size is L.
+
+    .. note:: 
+        **Hint for extra credit**: Implement goal condition using first-order logic quantifiers.
+
+#. You can change the parameters (the number of object types and number of objects per object type) in refinement.py to see how it changes the generated problem file.
+
+    .. note:: 
+        Your code must generate valid PDDL! Check out the Tips section below for some useful resources on PDDL. Also, review the PDDL tutorial again which can help prepare you for this task.
+
+===================================
+Checking correctness of PDDL files
+===================================
+
+You can use Fast Downward (FD) located at :code:`~/catkin_ws/src/hw2/planners/FD/` to verify if your PDDL files correct.
+Once you have completed the domain PDDL and problem.pddl you can use a
+high-level planner to verify that a high level plan can be found.
+
+**************
+Fast Downward
+**************
+
+#. Setup FD: From the FD planner directory, run the build script to set up the planner before using it.
+
+	.. code-block:: bash
+
+		cd ./planners/FD
+		./build.py
+
+#. Run FD. Ensure that you have updated goal in problem.pddl before running this command. This is an example for cafeWorld. Replace the PDDL name when running bookWorld.
+
+    .. code-block:: bash
+    
+        ./planners/FD/fast-downward.py domain_cafeWorld.pddl problem.pddl --search "lazy_greedy([ff()], preferred=[ff()])"
+
+#. You can change the parameters given to FD. For its usage simply run fast-downward.py without any parameters. To get complete list of parameters pass -h as an argument.
+
+    .. code-block:: bash
+    
+        $ ./planners/FD/fast-downward.py 
+        usage: fast-downward.py [-h] [--show-aliases] [--run-all] [--translate]
+                                [--search]
+                                [--translate-time-limit TRANSLATE_TIME_LIMIT]
+                                [--translate-memory-limit TRANSLATE_MEMORY_LIMIT]
+                                [--search-time-limit SEARCH_TIME_LIMIT]
+                                [--search-memory-limit SEARCH_MEMORY_LIMIT]
+                                [--validate-time-limit VALIDATE_TIME_LIMIT]
+                                [--validate-memory-limit VALIDATE_MEMORY_LIMIT]
+                                [--overall-time-limit OVERALL_TIME_LIMIT]
+                                [--overall-memory-limit OVERALL_MEMORY_LIMIT]
+                                [--alias ALIAS] [--build BUILD] [--debug] [--validate]
+                                [--log-level {debug,info,warning}] [--plan-file FILE]
+                                [--sas-file FILE] [--keep-sas-file] [--portfolio FILE]
+                                [--portfolio-bound VALUE] [--portfolio-single-plan]
+                                [--cleanup]
+                                INPUT_FILE1 [INPUT_FILE2] [COMPONENT_OPTION ...]
+        fast-downward.py: error: translator needs one or two input files
+        
+#. If you do not get the help output above you might have an incorrect system configuration.
+
+#. If your domain and problem files are **syntactically correct**, you will get a plan that can be easily viewed in the terminal.
+
+#. Also, a correct domain and goal will lead to a correct refinement and the robot will successfully pick and place all objects in Gazebo.
+
+==================================
+Completing refinement.py
+==================================
+
+**************************************
+Generate the plan
+**************************************
+
+#. We have automated the plan generation process once you have completed the domain pddls and generated a valid problem.pddl.
+
+#. Run refinement.py with -h parameter to see it's usage.
+
+	.. code-block:: bash
+
+		$ rosrun hw2 refinement.py -h
+		usage: refinement.py [-h] [--objtypes OBJTYPES] [--objcount OBJCOUNT]
+					[--seed SEED] [--generate-only] [--file-name FILE_NAME]
+					[--clean] [--env ENV]
+
+		optional arguments:
+		-h, --help            show this help message and exit
+		--objtypes OBJTYPES   No of object types
+		--objcount OBJCOUNT   The number of objects for each type in the environment.
+		--seed SEED           The random seed
+		--generate-only       Only generate a new problem file and exit.
+		--file-name FILE_NAME
+								Store results in <file> in the project root directory.
+		--clean               Cleanup the existing csv files
+		--env ENV             Choose environment b/w cafeWorld and bookWorld
+
+
+Assume that you use FD, then to generate the plan your command will be:
+
+	.. code-block:: bash
+
+		rosrun hw2 refinement.py -step 1 -planner FD -params "--search \"astar(blind())\""
+
+	.. note::
+		If your parameters have any " symbols, then delimit them using backward-slash.
+
+
+************************************
+Refine the plan
+************************************
+
+You have to convert the action move into the action/action sequence that can be executed on TurtleBot. This is needed because when your PDDL says move TurtleBot from its initial location to the location of Book 1, the TurtleBot does not know how to go from the initial location to the location of Book 1, all it understands is the actions that it can execute, in this case MoveF, MoveB, TurnCW, or TurnCCW. So you have to convert this move command given by the planner's output plan into a set of action sequences like ["MoveF", "MoveF", "TurnCCW", "MoveF"], etc. so that TurtleBot can execute it. This is called downward refinement, converting high level actions into low level actions understood by the agent (TurtleBot in this case). You can refer Section 11.4 of the Textbook to learn more about this.
+
+Build the downward refinement functionality into `refine_plan <#refinement.Refine.refine_plan>`_ method of class Refine in refinement.py. Find below the tips and pointers on how to refine the move method:
+
+'''''''''''		
+Move
+'''''''''''
+
+#. Generate the action sequence for each of the move method. To accomplish this, call `get_path <#refinement.Refine.get_path>`_ method from your current state. If there is no path returned, then no path exists from the current state to the goal state, i.e. refinement has failed. If refinement fails, check visually on Gazebo if actually no path exists to reach that particular book or bin. 
+
+#. Convert the move action to the proper tuple and append it to Refine.actions so that it can be executed later.
+
+
+=============================
+Generating Refinements
+=============================
+#. For your task, you will use refinement.py to generate a new problem.pddl file which contains the initial state and objects that were already filled in along with the goal condition that you completed earlier.
+
+#. This step runs refinement.py without --generate-only and actually produces refinements that can be executed in Gazebo.
+   Run rosrun hw2 refinement.py -h to get basic help. The seed is used to generate a random configuration of environment. 
+
+    .. code-block:: bash
+
+        $ rosrun hw2 refinement.py -h
+        usage: refinement.py [-h] [--objtypes OBJTYPES] [--objcount OBJCOUNT]
+                     [--seed SEED] [--generate-only] [--file-name FILE_NAME]
+                     [--clean] [--env ENV]
+		optional arguments:
+		-h, --help            show this help message and exit
+		--objtypes OBJTYPES   No of object types
+		--objcount OBJCOUNT   The number of objects for each type in the environment.
+		--seed SEED           The random seed
+		--generate-only       Only generate a new problem file and exit.
+		--file-name FILE_NAME
+								Store results in <file> in the project root directory.
+		--clean               Cleanup the existing csv files
+		--env ENV             Choose environment b/w cafeWorld and bookWorld
+
+#. In a terminal, run the following for each environment:
+
+    .. code-block:: bash
+
+        rosrun hw2 refinement.py --objtypes <number of object types> --objcount <number of objects per type> --seed <seed> --env <environment>
+
+If your domain PDDL files and refinement.py are implemented correctly, this should run successfully without errors. If not, an exception message will be printed to the screen. 
+	
+    .. note:: 
+ 	It is possible that your implementation is correct but there are certain configurations of the environment where a high-level solution exists but a low-level refinement of high-level solution does not exist. This is because of robot's constraints (it can not traverse close to the tables in cafeWorld). E.g. the tables are placed on opposite corners of a grid cell, then there is not enough space in between for the robot to pass (even if it looks like it can pass in the gazebo!). 
+	
+	If this happens, try running the previous rosrun hw2 refinement.py command with a different seed. You can use the configurations from submit.sh as they have been well tested to produce environments with valid solutions.
+
+#. You can view the high-level planner log found at ~/catkin_ws/src/hw2/planner_output.log to see the result of the high-level planner. 
+
+#. Also, the results of your latest run can be found in the last line of ~/catkin_ws/src/hw2/results.csv
+
+#. Running rosrun hw2 refinement.py with --clean will clear the results.csv file or you can simply delete it.
+
+=============================
+Running Gazebo
+=============================
+
+#. Assuming you have a successful execution of refinement.py, a log of the environment and the refinement is created in :code:`~/catkin_ws/src/hw2/results.csv`.
+
+#. The latest run is always the last line of the file.
+
+#. If you want to run the latest run of refinement.py, execute the following command.
+
+    .. code-block:: bash
+
+        rosrun hw2 gazebo.py --input-file ~/catkin_ws/src/hw2/results.csv
+
+#. Alternatively, if you want to execute a specific run on Gazebo, use the following comamnd.
+
+    .. code-block:: bash
+
+        rosrun hw2 gazebo.py --input-file ~/catkin_ws/src/hw2/results.csv --line <line>
+        
+    .. note:: 
+
+        If your domain PDDL and problem.pddl are not written correctly, you might see
+        incorrect execution on Gazebo!
+
+=============================
+Using Test cases
+=============================
+
+If you follow all the instructions, write goal conditions correctly, and are able to produce high-level plans successfully, then the generated plans would be valid. However, you can use the configurations used in the hw2/testcases.csv file. It is perfectly fine if all the plans do not match exactly with the plans generated by your code as the provided planner may generate different solutions sometimes. However, matching some plans may give you an idea that you're indeed producing valid plans. If most of the plans match, you can be sure about the correctness of your implementation.
+
+#. The testcases.csv file contains 6 columns.
+
+	Object_types; object_count; seed; exception; refined_plan; environment
+
+#. refined_plan contains a list of tuples. Each tuple for move action has 3 components: (high_level_action, refined plan, resulting state)
+
+	.. note ::
+
+		An example of tuple for move action:
+		('move', ['MoveF', 'TurnCCW', 'MoveF', 'MoveF', 'MoveF', 'MoveF', 'MoveF', 'MoveF', 'MoveF', 'MoveF', 'MoveF', 'TurnCW', 'MoveF', 'TurnCCW', 'MoveF', 'TurnCW', 'MoveF', 'TurnCCW', 'MoveF', 'MoveF', 'TurnCCW', 'MoveF', 'MoveF', 'TurnCW', 'MoveF', 'MoveF', 'TurnCW'], [0.5, 7.0, 'EAST'])
+
+	.. note ::
+		Tuples for pick and place actions just contains the action and parameters of the high level action. E.g.: ('pick', 'book_2'),  ('place', 'book_2', 'bin_2')
+
+#. Each row in the file contains one configuration and its output. You can run all test cases at once using test_cases.sh.
+
+
+
+=============================
+Submission Instructions
+=============================
+
+Before you make the final submission, create an  :code:`id.txt` in the :code:`hw2` folder (:code:`~/catkin_ws/src/hw2/`). The file should contain two lines. First row should be your ASURITE (e.g., :code:`jdoe35`) and the second line should be your ASU ID (e.g, 1213141516).
+
+When you are ready tos submit your assignmment, you simply need to push the repository on the git classroom. Use the following commands to push your code and submission files. 
+
+.. code-block:: bash 
+
+    git add scripts/*
+	git add *.csv
+	git add *.pddl
+	git add id.txt
+    git commit -m "final submission" 
+    git push origin main
+
+
+=============================
+Tips and Suggestions
+=============================
+
+#. White space, incorrect parentheses are common problems when writing PDDL. The high-level planner can be used to quickly verify if your PDDL is valid or not. It will usually give a descriptive error message of what went wrong while parsing the PDDL.
+#. Review the PDDL tutorials and other resources for learning how to write PDDL. 
+#. The actions have typed parameters unlike how we have used in classes till now. A brief usage of typed action parameters is available here: `https://planning.wiki/ref/pddl/domain#object-types <https://planning.wiki/ref/pddl/domain#object-types>`_. 
+#. Test your implementation with smaller number of objects and smaller number of subjects to see if it works as expected. On a Gazebo execution, the robot must pick up all objects and place them in bins. Which bins are correct is a bit harder to check in Gazebo however a general indicator is it dropping objects in different bins. Your action preconditions must ensure this!
+#. If refinement of the move action fails, check visually on Gazebo if actually there is no refinement possible. This can provide hints as to whether your domain and problem are incorrectly written since the world generated is independent of the domain and problem file. You can always run gazebo.py after refinement.py to open a world view of the last problem generated.
+#. Use ~/catkin_ws/src/hw2/hw2_kill.sh to kill everything related to hw2 and start afresh if your terminals get stuck etc.
+#. At times, the TurtleBot takes some time to perform an action, so wait for some time if no movement is visible.
+#. Not all problems have valid refinements, this is because the robot can only carry one book in the basket at a time.
+#. Even if refinement.py fails to generate any plan, it still writes the world to results.csv, you can run Gazebo to just view the world and get a visual idea of what the world looks like, but note that it will exit relatively quickly, so you can manually open Gazebo by typing roslaunch hw2 maze.launch.
+#. --generate-only also creates the world that can be easily viewed in Gazebo by using the instructions in the point above.
+#. You might need to recompile the planner provided if it does not execute on your system.
+#. Gazebo takes a while to load the environment for the first time. So if you see a black screen, do not worry!
+#. Check the discussion page on Canvas to see if the problem you are facing is already answered. If not, start a new discussion.
+
+************************************
+Resources
+************************************
+#. A simple place to start would be `PDDL Version 1.2 Manual <https://www.dewilkins.org/papers/pddl.pdf>`_.
+
+#. If you are looking for an exhaustive resource, you can refer `An Introduction to the PDDL <https://www.morganclaypool.com/doi/abs/10.2200/S00900ED2V01Y201902AIM042>`_. This book is available on ASU's Library.
+
+#. A collection of PDDL Domains and Problems is available on `this Github Repository <https://github.com/potassco/pddl-instances>`_. You can use these domains and problems to familiarize yourself with how the high-level planners work.
+#. FastDownward homepage: http://www.fast-downward.org/
+#. FF and FD planners are located at ~/catkin_ws/src/hw2/planners/
+
+API
+=============================
+
+This API only lists the part of code that you will have to use to complete this project and Extra Credit. 
+You are free to explore the code by looking into each file separately, but do not change anything other than refinement.py, submit.sh, planner.py, domain PDDL files, and problem.pddl.
+
+As a part of this project, you will only need to modify:
+
+#. goal_formula.py
+#. refinement.py
+#. domain_cafeWorld.pddl
+#. domain_bookWorld.pddl
+#. problem.pddl
+
+You may also need to modify the following for extra credit:
+
+#. planner.py
+
+Below is a list of some other utility files:
+
+#. submit.sh: Used to generate the submit.csv that you need for submitting this project.
+#. hw2_kill.sh: Used to clean up the environment. Use this first if you face problems and errors.
+#. planner_output.log: View the results of the high-level FD planner after running refinement.py. 
+#. problem.pddl.soln: If you're using FF planner, the output is stored in this file.
+
+Browse through the source code of the files above to get a better idea of the
+expectations.
+
+
+This API covers only the part of code that you will have to use to complete this project. You are free to explore the code by looking into each file separately, but do not change anything other than refinement.py, domain.pddl, and problem.pddl.
+
+====================================================
+class State
+====================================================
+.. moduleauthor:: AAIR Lab, ASU <aair.lab@asu.edu>
+
+.. automodule:: problem
+	:noindex:
+
+.. autoclass:: State
+   :members:
+
+====================================================
+class Helper
+====================================================
+.. moduleauthor:: AAIR Lab, ASU <aair.lab@asu.edu>
+
+.. automodule:: problem
+	:noindex:
+
+.. autoclass:: Helper
+   :members:
+
+====================================================
+class Refine
+====================================================
+.. moduleauthor:: AAIR Lab, ASU <aair.lab@asu.edu>
+
+.. automodule:: refinement
+	:noindex:
+
+.. autoclass:: Refine
+   :members:
+   :exclude-members: is_goal_state, get_manhattan_distance, build_goal_states, status_callback	
+
+
+====================================================
+class Planner
+====================================================
+.. moduleauthor:: AAIR Lab, ASU <aair.lab@asu.edu>
+
+.. automodule:: planner
+	:members:
+	:noindex:
+
+.. autoclass:: Planner
+   :members:
