@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Milestone Progress</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 12px;
+    background: #f7f4ef;
+    display: flex;
+    justify-content: center;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .progress-section {
+    display: flex;
+    justify-content: center; /* center everything */
+    align-items: center; /* vertically align */
+    gap: 16px; /* more breathing room */
+  }
+
+  .progress-wrapper {
+    position: relative;
+    width: 12px;
+    height: 420px;
+    background: #e3f2fd;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .progress-bar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 0%;
+    background: #4fc3f7;
+    transition: height 0.4s ease;
+  }
+
+  .milestones {
+    display: flex;
+    flex-direction: column-reverse; /* reverse order */
+    justify-content: space-between;
+    height: 420px;
+  }
+
+  .milestone {
+    font-size: 13px;
+    line-height: 1.3;
+    text-align: left;
+    max-width: 180px; /* constrain width so it wraps */
+    word-wrap: break-word;
+  }
+
+  .photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+.photo-box {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden; /* ensures image respects rounded corners */
+  background: #ffffff;
+  border: 2px dashed #cfd8dc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.photo-box img {
+  width: 100%;     /* fill container width */
+  height: auto;    /* auto-scale height */
+  display: block;  /* removes extra spacing */
+  border-radius: 12px;
+}
+
+  @media (max-width: 400px) {
+    .milestone {
+      font-size: 12px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1 style="text-align: center;">SASE Pop-up Cafe Fundraiser</h1>
+  <div class="progress-section">
+
+    <div class="milestones">
+      <div class="milestone">$15 Ashna and Subbel Drink Buldak Sauce</div>
+      <div class="milestone">$30 Water Ballooons at Subbel, Katie and Oliver</div>
+      <div class="milestone">$45 Tortilla Slap Tim, Oliver and Katie</div>
+      <div class="milestone">$60 Pie Cody, Grace and Katie</div>
+      <div class="milestone">$80 Pie Loretta, Oliver and Tim</div>
+      <div class="milestone">$100 Ice-bucket Challenge for Oliver and Loretta</div>
+      <div class="milestone">$120 Make Oliver and Subbel dance to SODA-POP</div>
+      <div class="milestone">$140 Wax Oliver's Arms</div>
+      <div class="milestone">$160 Wax Oliver's Legs</div>
+      <div class="milestone">$180 Put Makeup on Subbel</div>
+      <div class="milestone">$200 More...</div>
+    </div>
+
+
+    <div class="progress-wrapper">
+      <div id="progressBar" class="progress-bar"></div>
+    </div>
+
+  </div>
+
+  <div class="photos">
+    <div class="photo-box">
+    <img src="Image/popup1.jpg" alt="Photo 1">
+    </div>
+
+    <div class="photo-box">
+    <img src="Image/popup2.jpg" alt="Photo 2">
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    let progressValue = 0;
+    const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSwGQlgwaG5mYlaROmyW0b1OapWncUAMbo5f49LiIRpZrakEGnUc2ANZaQk3Oqa-qS9prOPUmC9KFuS/pub?output=csv";
+
+    fetch(CSV_URL)
+    .then(res => res.text())
+    .then(csv => {
+        const rows = csv.split("\n");
+        const firstRow = rows[0].split(",");
+
+        progressValue = parseFloat(firstRow[8].trim()) || 0;
+
+        updateProgress(progressValue);
+    })
+    .catch(() => {
+        console.log("error loading data");
+    });
+
+    function updateProgress(value) {
+        const capped = Math.min(value, 200);
+        const percent = (capped / 200) * 100;
+        document.getElementById("progressBar").style.height = percent + "%";
+    }
+
+});
+</script>
+
+</body>
+</html>
