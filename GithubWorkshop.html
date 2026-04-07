@@ -5,6 +5,11 @@
 			span{
 			font-size: 1.5vw;
 			}
+			pre{
+				padding: 5px;
+				margin: 0;
+				background-color: lightgray;
+			}
 		</style>
 		<meta charset="UTF-8">
 		<title>SASE HTML Workshop</title>
@@ -89,7 +94,7 @@
 			<li><strong>Collaboration:</strong> Git can allow for easier collaboration if instead of a computer you have a server.</li>
 		</ul>
 		<hr>
-        <h2>Github</h2>
+		<h2>Github</h2>
 		<ul>
 			<li>Github is a platform, and not necessarily a software. Think of a huge computer you rent that runs git for you.</li>
 			<li>It allows you to store your changes, commits and anything you would store on local</li>
@@ -149,96 +154,139 @@
 			<li>Local - Your own machine that is connected to the internet</li>
 		</ul>
 		<hr>
-<h2>More Useful Git Commands</h2>
-<p>Here are some additional basic commands that will help you understand what is happening in your project:</p>
-<ul>
-	<li>Status</li>
-	<ul>
-		<li>Shows the current state of your repository (very useful when confused)</li>
-		<li>
-			<pre><code>git status</code></pre>
-		</li>
-	</ul>
-
-	<li>Log</li>
-	<ul>
-		<li>Displays a history of all commits</li>
-		<li>
-			<pre><code>git log</code></pre>
-		</li>
-	</ul>
-
-	<li>Branch (View Branches)</li>
-	<ul>
-		<li>Shows all existing branches in your project</li>
-		<li>
-			<pre><code>git branch</code></pre>
-		</li>
-	</ul>
-
-	<li>Create a New Branch</li>
-	<ul>
-		<li>Creates a new branch to work on features safely</li>
-		<li>
-			<pre><code>git branch branch-name</code></pre>
-		</li>
-	</ul>
-
-	<li>Switch Branches</li>
-	<ul>
-		<li>Moves you from one branch to another</li>
-		<li>
-			<pre><code>git checkout branch-name</code></pre>
-		</li>
-	</ul>
-
-	<li>Create and Switch Branch (Shortcut)</li>
-	<ul>
-		<li>Creates a new branch and switches to it immediately</li>
-		<li>
-			<pre><code>git checkout -b branch-name</code></pre>
-		</li>
-	</ul>
-
-	<li>Merge Branch</li>
-	<ul>
-		<li>Merges changes from another branch into your current branch</li>
-		<li>
-			<pre><code>git merge branch-name</code></pre>
-		</li>
-	</ul>
-
-	<li>Pull Latest Changes</li>
-	<ul>
-		<li>Downloads and integrates changes from GitHub</li>
-		<li>
-			<pre><code>git pull</code></pre>
-		</li>
-	</ul>
-
-	<li>Fetch Changes</li>
-	<ul>
-		<li>Downloads changes from GitHub but does not merge them</li>
-		<li>
-			<pre><code>git fetch</code></pre>
-		</li>
-	</ul>
-
-	<li>Remove a File from Staging</li>
-	<ul>
-		<li>Unstages a file if you added it by mistake</li>
-		<li>
-			<pre><code>git reset file-name</code></pre>
-		</li>
-	</ul>
-
-	<li>Rename a Branch</li>
-	<ul>
-		<li>Renames the current branch</li>
-		<li>
-			<pre><code>git branch -m new-name</code></pre>
-		</li>
-	</ul>
-</ul>
+		<h2>More Useful Git Commands</h2>
+		<p>Here are some additional basic commands that will help you understand what is happening in your project:</p>
+		<ul>
+			<li>Status</li>
+			<ul>
+				<li>Shows the current state of your repository (very useful when confused)</li>
+				<li>
+					<pre><code>git status</code></pre>
+				</li>
+			</ul>
+			<li>Log</li>
+			<ul>
+				<li>Displays a history of all commits</li>
+				<li>
+					<pre><code>git log</code></pre>
+				</li>
+			</ul>
+			<li>Branch (View Branches)</li>
+			<ul>
+				<li>Shows all existing branches in your project</li>
+				<li>
+					<pre><code>git branch</code></pre>
+				</li>
+			</ul>
+			<li>Create a New Branch</li>
+			<ul>
+				<li>Creates a new branch to work on features safely</li>
+				<li>
+					<pre><code>git branch branch-name</code></pre>
+				</li>
+			</ul>
+			<li>Switch Branches</li>
+			<ul>
+				<li>Moves you from one branch to another</li>
+				<li>
+					<pre><code>git checkout branch-name</code></pre>
+				</li>
+			</ul>
+			<li>Create and Switch Branch (Shortcut)</li>
+			<ul>
+				<li>Creates a new branch and switches to it immediately</li>
+				<li>
+					<pre><code>git checkout -b branch-name</code></pre>
+				</li>
+			</ul>
+			<li>Merge Branch</li>
+			<ul>
+				<li>Merges changes from another branch into your current branch</li>
+				<li>
+					<pre><code>git merge branch-name</code></pre>
+				</li>
+			</ul>
+			<li>Pull Latest Changes</li>
+			<ul>
+				<li>Downloads and integrates changes from GitHub</li>
+				<li>
+					<pre><code>git pull</code></pre>
+				</li>
+			</ul>
+			<li>Fetch Changes</li>
+			<ul>
+				<li>Downloads changes from GitHub but does not merge them</li>
+				<li>
+					<pre><code>git fetch</code></pre>
+				</li>
+			</ul>
+			<li>Remove a File from Staging</li>
+			<ul>
+				<li>Unstages a file if you added it by mistake</li>
+				<li>
+					<pre><code>git reset file-name</code></pre>
+				</li>
+			</ul>
+			<li>Rename a Branch</li>
+			<ul>
+				<li>Renames the current branch</li>
+				<li>
+					<pre><code>git branch -m new-name</code></pre>
+				</li>
+			</ul>
+		</ul>
+		<hr>
+		<h2>Demo Files</h2>
+		<ul>
+			<li>
+				<pre><code>git init SASEisawesome</code></pre>
+			</li>
+			<li>
+				<pe><code>cd SASEisawesome</code></pe>
+			</li>
+			<li>Open a text editor here and make a file called shapes.html</li>
+			<li>Copy over the code from <a href="http://github.com/subbel/Dinosaurs/blob/main/shapes.html">here</a></li>
+			<ul>
+				<li>Copy the following lines whenever needed</li>
+				<li>
+					<pre><code>git add -A</code></pre>
+				</li>
+				<li>
+					<pre><code>git commit -m "message"</code></pre>
+				</li>
+			</ul>
+		</ul>
+		<ul>
+			<li>Making a key to your github account</li>
+			<li>Head to <a href="github.com">github.com</a></li>
+			<li>Click on your profile picture and then the settings button</li>
+			<li>Scroll down till you see developer settings</li>
+			<li>On the left pane you will see a dropdown marked "Personal Access Tokens"</li>
+			<ul>
+				<li>Click on the dropdown and click the Tokens(classic) button</li>
+			</ul>
+			<li>Click the "Generate new Token" --> "Generate new token (classic)"</li>
+			<ul>
+				<li>Write down a note</li>
+				<li>Check on expiry in one week (to ensure security)</li>
+				<li>Click on the repo button and unsure everything below it is also checked</li>
+				<li>Create your token and save it safely</li>
+			</ul>
+			<ul>
+				<li>Once you are done with your changes create a repository on github with the same name as the repo you made earlier</li>
+				<li>Copy the link given on github, and use the following code to update it</li>
+				<ul>
+					<li>
+						<pre><code>git remote add origin https://github.com/subbel/practical_workshop.git</code></pre>
+					</li>
+					<li>
+						<pre><code>git branch -M main</code></pre>
+					</li>
+					<li>
+						<pre><code>git push -u origin main</code></pre>
+					</li>
+				</ul>
+			</ul>
+		</ul>
 	</body>
 </html>
