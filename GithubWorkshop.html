@@ -1,117 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <style>
-        span{
-            font-size: 1.5vw;
-        }
-    </style>
-    <meta charset="UTF-8">
-    <title>SASE HTML Workshop</title>
-</head>
-<body style="font-size:x-large;">
-    <h1>Welcome to Github Workshop!!</h1>
-    <hr>
-    <div style="display: flex; flex-direction: row;margin-left: 20vw; margin-right: 20vw;">
-        <a href="https://saseasu.pythonanywhere.com/signin/"><img src="Image/qrcode.png" style="width: 25vw; border: 5px solid black; margin-right: 10vw;" ></a>
-        <a href="https://subbel.github.io/GithubWorkshop.html"><img src="Image/qrcode_subbel.github.io.png" style="width: 25vw; border: 5px solid black; " ></a>
-    </div>
-    <hr>
-    <h2>Setup</h2>
-    <p>Make sure you follow these steps thoroughly:</p>
-    <ul>
-        <li>Git</li>
-        <ol>
-            <li>Download Git <a href="https://git-scm.com/install/">here</a></li>
-            <li>Install Git on your machine</li>
-            <li>Open your terminal</li>
-            <li>Run the following code:<br><pre><code>git --version</code></pre></li>
-            <li>If you see the git version printed on your terminal good job!!!</li>
-        </ol>
-        <li>Github</li>
-        <ol>
-            <li>Do you have a <a href="github.com">Github</a> account?</li>
-            <ul>
-                <li>If yes, then ignore the instructions below and move to the text editor step</li>
-            </ul>
-            <li>If you do not have a Github account <a href="github.com">head to this site</a> and make one</li>
-        </ol>
-        <li>Open up a text editor (Notepad, VS-Code, Sublime, nano, vim, etc.)</li>
-    </ul>
-    <hr>
-    <h2>Git</h2>
-
-<p style="font-size: medium;">
-    If you are ever confused about jargon, please visit the
-    <a href="#dictionary">dictionary</a>.
-</p>
-
-<h4>What is Git?</h4>
+	<head>
+		<style>
+			span{
+			font-size: 1.5vw;
+			}
+		</style>
+		<meta charset="UTF-8">
+		<title>SASE HTML Workshop</title>
+	</head>
+	<body style="font-size:x-large;">
+		<h1>Welcome to Github Workshop!!</h1>
+		<hr>
+		<div style="display: flex; flex-direction: row;margin-left: 20vw; margin-right: 20vw;">
+			<a href="https://saseasu.pythonanywhere.com/signin/"><img src="Image/qrcode.png" style="width: 25vw; border: 5px solid black; margin-right: 10vw;" ></a>
+			<a href="https://subbel.github.io/GithubWorkshop.html"><img src="Image/qrcode_subbel.github.io.png" style="width: 25vw; border: 5px solid black; " ></a>
+		</div>
+		<hr>
+		<h2>Setup</h2>
+		<p>Make sure you follow these steps thoroughly:</p>
+		<ul>
+			<li>Git</li>
+			<ol>
+				<li>Download Git <a href="https://git-scm.com/install/">here</a></li>
+				<li>Install Git on your machine</li>
+				<li>Open your terminal</li>
+				<li>
+					Run the following code:<br>
+					<pre><code>git --version</code></pre>
+				</li>
+				<li>If you see the git version printed on your terminal good job!!!</li>
+			</ol>
+			<li>Github</li>
+			<ol>
+				<li>Do you have a <a href="github.com">Github</a> account?</li>
+				<ul>
+					<li>If yes, then ignore the instructions below and move to the text editor step</li>
+				</ul>
+				<li>If you do not have a Github account <a href="github.com">head to this site</a> and make one</li>
+			</ol>
+			<li>Open up a text editor (Notepad, VS-Code, Sublime, nano, vim, etc.)</li>
+		</ul>
+		<hr>
+		<h2>Git</h2>
+		<p style="font-size: medium;">
+			If you are ever confused about jargon, please visit the
+			<a href="#dictionary">dictionary</a>.
+		</p>
+		<h4>What is Git?</h4>
+		<ul>
+			<li>Git is a version control system used to track changes in files.</li>
+			<li>It is commonly used by developers and computer science students to manage code.</li>
+			<li>It allows you to view past versions and revert changes—similar to "time travel" for your files.</li>
+		</ul>
+		<h4>Commits</h4>
+		<ul>
+			<li>A <strong>commit</strong> means saving the current state of your project at a specific point in time.</li>
+			<li>Think of it like creating a restore point.</li>
+			<li>Commits can be made frequently (e.g., daily, multiple times a day, or at milestones).</li>
+		</ul>
+		<h5>Example of a Commit</h5>
+		<ul>
+			<li>You are making major changes to a project.</li>
+			<li><strong>April 5:</strong> You complete most changes and create a commit labeled "90% done".</li>
+			<li><strong>April 6:</strong> Your manager introduces a bug, and you cannot identify it.</li>
+			<li>Because you made a commit, you can revert the project back to the earlier working version.</li>
+			<li>Without that commit, fixing the issue could take a long time.</li>
+		</ul>
+		<h4>Branches</h4>
+		<ul>
+			<li>A <strong>branch</strong> creates a separate version of your project from the latest commit.</li>
+			<li>Branches are used to test new features safely.</li>
+			<li>Once changes are complete, they can be merged back into the main project.</li>
+		</ul>
+		<h4>Collaboration</h4>
+		<ul>
+			<li>Imagine two people working in shifts on the same machine</li>
+			<li>Each person can make their own branches label them, and communicate how their progress is going in a clean manner</li>
+			<li>Everyday the other person can look at the other person's updates, choose to merge or make their own changes</li>
+			<li>Near-perfect collaboration without any of the hassles.</li>
+		</ul>
+		<h4>Main Concepts</h4>
+		<ul>
+			<li><strong>Commits:</strong> A timestamp with all the changes made up to that point saved.</li>
+			<li><strong>Branches:</strong> A divergence from the main code to work on small bugs/changes`.</li>
+			<li><strong>Main/Master Branch:</strong> The default branch of a project.</li>
+			<li><strong>Merge:</strong> Combining changes from one branch into another.</li>
+			<li><strong>Collaboration:</strong> Git can allow for easier collaboration if instead of a computer you have a server.</li>
+		</ul>
+		<hr>
+        <h2>Github</h2>
+		<ul>
+			<li>Github is a platform, and not necessarily a software. Think of a huge computer you rent that runs git for you.</li>
+			<li>It allows you to store your changes, commits and anything you would store on local</li>
+			<li>A Github "repository" can also be made available to multiple people</li>
+			<ul>
+				<li>Anytime you want to think of github think of two different Git's running simultaneously</li>
+				<li>One version where all the coding happens (local machine) one where all these will eventually be stored</li>
+			</ul>
+			<li>This is where we will be introducing new concepts:</li>
+			<ul>
+				<li>Push : To push any commits you made on local and update them online</li>
+				<li>Pull/Fetch : To "pull" any commits made online (by your team) and download them (if fetching) and integrate them (if pulling)</li>
+			</ul>
+		</ul>
+		<hr>
+		<h2 id="dictionary">Dictionary</h2>
+		<p>Quite often I might use jargon to explain certain concepts. Here's a list of all important words and commands to keep a note of</p>
+		<ul>
+			<li>Track - A verb used to denote that a file is being watched by git</li>
+			<li>Stage - An imaginary stage where files that were changed can be put if you would like to save them</li>
+			<li>Add - To add new or pre-existing files to the stage</li>
+			<ul>
+				<li>
+					<pre><code>git add -A</code></pre>
+				</li>
+			</ul>
+			<li>Commit - To "save" your changes within git</li>
+			<ul>
+				<li>
+					<pre><code>git commit -m "Git Message"</code></pre>
+				</li>
+			</ul>
+			<li>Commit - To "save" your changes within git</li>
+			<ul>
+				<li>
+					<pre><code>git commit -m "Git Message"</code></pre>
+				</li>
+			</ul>
+			<li>Push - To "push" your changes within git on local to github</li>
+			<ul>
+				<li>
+					<pre><code>git push</code></pre>
+				</li>
+			</ul>
+			<li>Pull - To "pull" your changes from github and to download and integrate them</li>
+			<ul>
+				<li>
+					<pre><code>git pull</code></pre>
+				</li>
+			</ul>
+			<li>Fetch - To "fetch" your changes from github and to download them</li>
+			<ul>
+				<li>
+					<pre><code>git fetch</code></pre>
+				</li>
+			</ul>
+			<li>Local - Your own machine that is connected to the internet</li>
+		</ul>
+		<hr>
+<h2>More Useful Git Commands</h2>
+<p>Here are some additional basic commands that will help you understand what is happening in your project:</p>
 <ul>
-    <li>Git is a version control system used to track changes in files.</li>
-    <li>It is commonly used by developers and computer science students to manage code.</li>
-    <li>It allows you to view past versions and revert changes—similar to "time travel" for your files.</li>
-</ul>
+	<li>Status</li>
+	<ul>
+		<li>Shows the current state of your repository (very useful when confused)</li>
+		<li>
+			<pre><code>git status</code></pre>
+		</li>
+	</ul>
 
-<h4>Commits</h4>
-<ul>
-    <li>A <strong>commit</strong> means saving the current state of your project at a specific point in time.</li>
-    <li>Think of it like creating a restore point.</li>
-    <li>Commits can be made frequently (e.g., daily, multiple times a day, or at milestones).</li>
-</ul>
+	<li>Log</li>
+	<ul>
+		<li>Displays a history of all commits</li>
+		<li>
+			<pre><code>git log</code></pre>
+		</li>
+	</ul>
 
-<h5>Example of a Commit</h5>
-<ul>
-    <li>You are making major changes to a project.</li>
-    <li><strong>April 5:</strong> You complete most changes and create a commit labeled "90% done".</li>
-    <li><strong>April 6:</strong> Your manager introduces a bug, and you cannot identify it.</li>
-    <li>Because you made a commit, you can revert the project back to the earlier working version.</li>
-    <li>Without that commit, fixing the issue could take a long time.</li>
-</ul>
+	<li>Branch (View Branches)</li>
+	<ul>
+		<li>Shows all existing branches in your project</li>
+		<li>
+			<pre><code>git branch</code></pre>
+		</li>
+	</ul>
 
-<h4>Branches</h4>
-<ul>
-    <li>A <strong>branch</strong> creates a separate version of your project from the latest commit.</li>
-    <li>Branches are used to test new features safely.</li>
-    <li>Once changes are complete, they can be merged back into the main project.</li>
-</ul>
+	<li>Create a New Branch</li>
+	<ul>
+		<li>Creates a new branch to work on features safely</li>
+		<li>
+			<pre><code>git branch branch-name</code></pre>
+		</li>
+	</ul>
 
-<h4>Main Concepts</h4>
-<ul>
-    <li><strong>Main/Master Branch:</strong> The default branch of a project.</li>
-    <li><strong>Merge:</strong> Combining changes from one branch into another.</li>
+	<li>Switch Branches</li>
+	<ul>
+		<li>Moves you from one branch to another</li>
+		<li>
+			<pre><code>git checkout branch-name</code></pre>
+		</li>
+	</ul>
+
+	<li>Create and Switch Branch (Shortcut)</li>
+	<ul>
+		<li>Creates a new branch and switches to it immediately</li>
+		<li>
+			<pre><code>git checkout -b branch-name</code></pre>
+		</li>
+	</ul>
+
+	<li>Merge Branch</li>
+	<ul>
+		<li>Merges changes from another branch into your current branch</li>
+		<li>
+			<pre><code>git merge branch-name</code></pre>
+		</li>
+	</ul>
+
+	<li>Pull Latest Changes</li>
+	<ul>
+		<li>Downloads and integrates changes from GitHub</li>
+		<li>
+			<pre><code>git pull</code></pre>
+		</li>
+	</ul>
+
+	<li>Fetch Changes</li>
+	<ul>
+		<li>Downloads changes from GitHub but does not merge them</li>
+		<li>
+			<pre><code>git fetch</code></pre>
+		</li>
+	</ul>
+
+	<li>Remove a File from Staging</li>
+	<ul>
+		<li>Unstages a file if you added it by mistake</li>
+		<li>
+			<pre><code>git reset file-name</code></pre>
+		</li>
+	</ul>
+
+	<li>Rename a Branch</li>
+	<ul>
+		<li>Renames the current branch</li>
+		<li>
+			<pre><code>git branch -m new-name</code></pre>
+		</li>
+	</ul>
 </ul>
-    <hr>
-    <hr>
-    <h2 id="dictionary">Dictionary</h2>
-    <p>Quite often I might use jargon to explain certain concepts. Here's a list of all important words and commands to keep a note of</p>
-    <ul>
-        <li>Track - A verb used to denote that a file is being watched by git</li>
-        <li>Stage - An imaginary stage where files that were changed can be put if you would like to save them</li>
-        <li>Add - To add new or pre-existing files to the stage</li>
-        <ul>
-            <li><pre><code>git add -A</code></pre></li>
-        </ul>
-        <li>Commit - To "save" your changes within git</li>
-        <ul>
-            <li><pre><code>git commit -m "Git Message"</code></pre></li>
-        </ul>
-        <li>Commit - To "save" your changes within git</li>
-        <ul>
-            <li><pre><code>git commit -m "Git Message"</code></pre></li>
-        </ul>
-        <li>Push - To "push" your changes within git on local to github</li>
-        <ul>
-            <li><pre><code>git push</code></pre></li>
-        </ul>
-        <li>Pull - To "pull" your changes from github and to download and integrate them</li>
-        <ul>
-            <li><pre><code>git pull</code></pre></li>
-        </ul>
-        <li>Fetch - To "fetch" your changes from github and to download them</li>
-        <ul>
-            <li><pre><code>git fetch</code></pre></li>
-        </ul>
-    </ul>
-</body>
+	</body>
 </html>
